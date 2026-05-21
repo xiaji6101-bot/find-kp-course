@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>约到KP完整课程体系 · BD基本功第一课</title>
+<title>搞定KP：如何找到并约到KP · 覆盖攻坚5步法第1课</title>
 <style>
   :root{
     --bg:#f5f6f8;--card:#fff;--text:#1a1a2e;--muted:#6b7280;
@@ -16,165 +16,182 @@
   body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"PingFang SC","Microsoft YaHei",sans-serif;background:var(--bg);color:var(--text);line-height:1.7;font-size:15px}
 
   /* 顶部 */
-  .header{background:linear-gradient(135deg,var(--accent-dark),var(--accent));color:#fff;padding:48px 32px 36px;text-align:center;position:relative}
-  .header h1{font-size:32px;font-weight:700;margin-bottom:8px;letter-spacing:.5px}
-  .header .sub{font-size:15px;opacity:.9;max-width:700px;margin:0 auto}
-  .header .badge{display:inline-block;background:rgba(255,255,255,.2);padding:4px 14px;border-radius:20px;font-size:12px;margin-top:12px}
+  .header{background:linear-gradient(135deg,#1e1b4b,var(--accent));color:#fff;padding:48px 32px 36px;text-align:center;position:relative}
+  .header .course-label{font-size:12px;background:rgba(255,255,255,.15);display:inline-block;padding:4px 14px;border-radius:20px;margin-bottom:14px;letter-spacing:1px}
+  .header h1{font-size:30px;font-weight:800;margin-bottom:10px;letter-spacing:.5px}
+  .header .sub{font-size:14px;opacity:.85;max-width:620px;margin:0 auto 14px}
+  .header-meta{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin-top:16px}
+  .header-meta-item{background:rgba(255,255,255,.15);padding:6px 16px;border-radius:20px;font-size:12px;display:flex;align-items:center;gap:6px}
 
   /* 布局 */
-  .container{max-width:1200px;margin:0 auto;display:flex;gap:24px;padding:24px}
-  .sidebar{width:260px;flex-shrink:0;position:sticky;top:20px;height:calc(100vh - 40px);overflow-y:auto}
+  .container{max-width:1100px;margin:0 auto;display:flex;gap:22px;padding:24px}
+  .sidebar{width:240px;flex-shrink:0;position:sticky;top:20px;height:calc(100vh - 40px);overflow-y:auto}
   .main{flex:1;min-width:0}
 
   /* 导航 */
   .nav{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);padding:16px}
-  .nav-title{font-size:13px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;margin-bottom:12px}
-  .nav-item{display:block;padding:8px 12px;border-radius:var(--radius-sm);color:var(--text);text-decoration:none;font-size:14px;margin-bottom:3px;transition:.15s;cursor:pointer;border:none;background:none;width:100%;text-align:left}
+  .nav-title{font-size:11px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.8px;margin-bottom:10px;padding-bottom:8px;border-bottom:1px solid var(--border)}
+  .nav-item{display:block;padding:7px 12px;border-radius:var(--radius-sm);color:var(--text);text-decoration:none;font-size:13px;margin-bottom:2px;transition:.15s;cursor:pointer}
   .nav-item:hover{background:var(--accent-light);color:var(--accent-dark)}
   .nav-item.active{background:var(--accent);color:#fff}
-  .nav-item .num{display:inline-block;width:20px;text-align:center;font-size:11px;font-weight:700;margin-right:4px}
+  .nav-num{display:inline-block;width:18px;font-size:10px;font-weight:700;color:var(--muted);margin-right:4px}
+  .nav-item.active .nav-num{color:rgba(255,255,255,.7)}
+  .nav-sub{padding-left:30px;font-size:12px;color:var(--muted)}
+  .nav-divider{border:none;border-top:1px solid var(--border);margin:8px 0}
 
   /* 模块卡片 */
   .module{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);margin-bottom:20px;overflow:hidden}
-  .module-header{padding:20px 24px;background:#fafafa;border-bottom:1px solid var(--border);cursor:pointer;display:flex;align-items:center;justify-content:space-between;transition:.2s}
-  .module-header:hover{background:#f3f4f6}
-  .module-header h2{font-size:18px;font-weight:700;display:flex;align-items:center;gap:10px}
-  .module-header .toggle{font-size:20px;color:var(--muted);transition:.2s}
-  .module-header.active .toggle{transform:rotate(180deg)}
-  .module-tag{font-size:11px;padding:3px 10px;border-radius:20px;background:var(--accent-light);color:var(--accent-dark);font-weight:600}
+  .module-header{padding:18px 22px;border-bottom:1px solid var(--border);cursor:pointer;display:flex;align-items:center;justify-content:space-between;transition:.2s}
+  .module-header:hover{background:#f9fafb}
+  .module-title{display:flex;align-items:center;gap:10px}
+  .module-title h2{font-size:17px;font-weight:700}
+  .module-tag{font-size:10px;padding:3px 10px;border-radius:20px;background:var(--accent-light);color:var(--accent-dark);font-weight:700;letter-spacing:.5px;flex-shrink:0}
+  .module-tag.red{background:#fee2e2;color:#991b1b}
+  .module-tag.green{background:#d1fae5;color:#065f46}
+  .module-tag.yellow{background:#fef3c7;color:#92400e}
+  .module-tag.gray{background:#f3f4f6;color:#374151}
+  .toggle{font-size:18px;color:var(--muted);transition:.2s;flex-shrink:0}
+  .module-header.open .toggle{transform:rotate(180deg)}
   .module-body{padding:24px;display:none}
   .module-body.open{display:block}
 
   /* 内容元素 */
   .lead{background:var(--accent-light);border-left:4px solid var(--accent);padding:14px 18px;border-radius:0 var(--radius-sm) var(--radius-sm) 0;margin:16px 0;font-size:14px}
   .lead strong{color:var(--accent-dark)}
-  blockquote{border-left:3px solid var(--warning);background:#fffbeb;padding:14px 18px;margin:14px 0;border-radius:0 var(--radius-sm) var(--radius-sm) 0;font-style:italic;color:#92400e}
-  blockquote strong{color:#78350f}
+  blockquote{border-left:3px solid var(--warning);background:#fffbeb;padding:12px 16px;margin:12px 0;border-radius:0 var(--radius-sm) var(--radius-sm) 0;font-size:14px;color:#92400e}
 
-  h3{font-size:16px;font-weight:700;margin:24px 0 10px;color:var(--text);display:flex;align-items:center;gap:8px}
-  h3 .icon{width:28px;height:28px;border-radius:6px;background:var(--accent);color:#fff;display:flex;align-items:center;justify-content:center;font-size:13px}
-  h4{font-size:15px;font-weight:700;margin:18px 0 8px;color:#374151}
-
-  p{margin:10px 0}
-  ul,ol{margin:10px 0 10px 22px}
-  li{margin:6px 0}
+  h3{font-size:15px;font-weight:700;margin:22px 0 10px;color:var(--text);display:flex;align-items:center;gap:8px}
+  h3 .icon{width:26px;height:26px;border-radius:6px;background:var(--accent);color:#fff;display:flex;align-items:center;justify-content:center;font-size:12px;flex-shrink:0}
+  h4{font-size:14px;font-weight:700;margin:16px 0 8px;color:#374151}
+  p{margin:8px 0}
+  ul,ol{margin:8px 0 8px 22px}
+  li{margin:5px 0;font-size:14px}
 
   /* 表格 */
-  table{width:100%;border-collapse:collapse;margin:14px 0;font-size:14px}
-  th{background:#f9fafb;padding:10px 14px;text-align:left;font-weight:600;border-bottom:2px solid var(--border);font-size:13px}
-  td{padding:10px 14px;border-bottom:1px solid var(--border);vertical-align:top}
+  table{width:100%;border-collapse:collapse;margin:12px 0;font-size:14px}
+  th{background:#f9fafb;padding:9px 14px;text-align:left;font-weight:600;border-bottom:2px solid var(--border);font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.3px}
+  td{padding:9px 14px;border-bottom:1px solid var(--border);vertical-align:top}
   tr:hover td{background:#f9fafb}
-  tr:nth-child(even) td{background:#fafafa}
 
-  /* 代码/话术块 */
-  pre,code{font-family:"SF Mono",Consolas,Monaco,monospace}
-  .dialogue{background:#f3f4f6;padding:16px 20px;border-radius:var(--radius-sm);margin:12px 0;font-size:14px;line-height:1.8;position:relative}
-  .dialogue::before{content:"话术";position:absolute;top:-10px;left:14px;background:var(--info);color:#fff;font-size:10px;padding:2px 8px;border-radius:10px;font-weight:600}
-  .dialogue-alt::before{content:"案例"}
-  .dialogue-warn::before{content:"避坑";background:var(--danger)}
-  .dialogue-success::before{content:"工具";background:var(--success)}
-
-  /* 步骤 */
-  .steps{display:flex;flex-direction:column;gap:10px;margin:14px 0}
-  .step{display:flex;gap:12px;align-items:flex-start;background:#fafafa;padding:14px 16px;border-radius:var(--radius-sm);border:1px solid var(--border)}
-  .step-num{width:28px;height:28px;border-radius:50%;background:var(--accent);color:#fff;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;flex-shrink:0}
-  .step-body{flex:1}
-  .step-title{font-weight:600;margin-bottom:4px;font-size:14px}
-  .step-desc{font-size:13px;color:var(--muted)}
-
-  /* 工具卡片 */
-  .tool-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px;margin:16px 0}
-  .tool-card{background:var(--card);border:2px solid var(--accent-light);border-radius:var(--radius);padding:18px;position:relative}
-  .tool-card::before{content:"TOOL";position:absolute;top:-1px;right:16px;background:var(--accent);color:#fff;font-size:9px;padding:3px 10px;border-radius:0 0 var(--radius-sm) var(--radius-sm);font-weight:700;letter-spacing:.5px}
-  .tool-title{font-size:15px;font-weight:700;margin-bottom:10px;color:var(--accent-dark)}
-  .tool-body{font-size:13px;line-height:1.8}
+  /* 话术/案例块 */
+  .dialogue{background:#f3f4f6;padding:14px 18px;border-radius:var(--radius-sm);margin:10px 0;font-size:13px;line-height:1.9;position:relative}
+  .dialogue::before{content:"话术示例";position:absolute;top:-9px;left:14px;background:var(--info);color:#fff;font-size:10px;padding:2px 8px;border-radius:10px;font-weight:600}
+  .dialogue.case::before{content:"真实案例";background:var(--warning)}
+  .dialogue.warn::before{content:"⚠ 避坑";background:var(--danger)}
+  .dialogue.stop::before{content:"✗ 禁止";background:#7f1d1d}
+  .dialogue.ok::before{content:"✓ 正确做法";background:var(--success)}
 
   /* 流程图 */
-  .flow{display:flex;flex-wrap:wrap;gap:0;align-items:center;justify-content:center;margin:18px 0}
-  .flow-step{flex:1;min-width:140px;background:var(--card);border:2px solid var(--border);border-radius:var(--radius);padding:14px;text-align:center;position:relative}
-  .flow-step.active{border-color:var(--accent);background:var(--accent-light)}
-  .flow-num{width:28px;height:28px;border-radius:50%;background:var(--accent);color:#fff;font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center;margin:0 auto 6px}
+  .flow{display:flex;flex-wrap:wrap;gap:0;align-items:stretch;margin:16px 0}
+  .flow-step{flex:1;min-width:130px;background:var(--card);border:2px solid var(--border);border-radius:var(--radius);padding:14px 10px;text-align:center;position:relative}
+  .flow-step.hi{border-color:var(--accent);background:var(--accent-light)}
+  .flow-num{width:26px;height:26px;border-radius:50%;background:var(--accent);color:#fff;font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center;margin:0 auto 6px}
   .flow-title{font-weight:700;font-size:13px;margin-bottom:4px}
-  .flow-desc{font-size:12px;color:var(--muted)}
-  .flow-arrow{padding:0 8px;color:var(--accent);font-size:20px;font-weight:700}
+  .flow-desc{font-size:12px;color:var(--muted);line-height:1.4}
+  .flow-arrow{padding:0 8px;color:var(--accent);font-size:22px;font-weight:300;display:flex;align-items:center}
 
-  /* 知识点 */
-  .kp-search{width:100%;padding:10px 16px;border:1px solid var(--border);border-radius:var(--radius-sm);font-size:14px;margin-bottom:14px;outline:none}
-  .kp-search:focus{border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-light)}
-  .kp-table{font-size:13px}
-  .kp-tag{display:inline-block;padding:2px 8px;border-radius:10px;font-size:11px;font-weight:600;margin-right:4px}
-  .tag-core{background:var(--accent-light);color:var(--accent-dark)}
-  .tag-skill{background:#d1fae5;color:#065f46}
-  .tag-tool{background:#dbeafe;color:#1e40af}
-  .tag-mind{background:#fef3c7;color:#92400e}
-  .tag-case{background:#fee2e2;color:#991b1b}
+  /* 步骤 */
+  .steps{display:flex;flex-direction:column;gap:8px;margin:12px 0}
+  .step{display:flex;gap:12px;align-items:flex-start;background:#fafafa;padding:12px 16px;border-radius:var(--radius-sm);border:1px solid var(--border)}
+  .step-num{width:26px;height:26px;border-radius:50%;background:var(--accent);color:#fff;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;flex-shrink:0;margin-top:1px}
+  .step-title{font-weight:600;font-size:14px;margin-bottom:3px}
+  .step-desc{font-size:13px;color:var(--muted)}
 
-  /* 警示 */
-  .alert{background:#fef2f2;border:1px solid #fecaca;border-radius:var(--radius-sm);padding:14px 18px;margin:14px 0;color:#991b1b;font-size:14px}
-  .alert-success{background:#f0fdf4;border-color:#bbf7d0;color:#166534}
-  .alert-warn{background:#fffbeb;border-color:#fde68a;color:#92400e}
+  /* 方法卡片（找KP路径） */
+  .road-grid{display:flex;flex-direction:column;gap:16px;margin:16px 0}
+  .road-card{border-radius:var(--radius);border:1px solid var(--border);overflow:hidden;background:var(--card)}
+  .road-head{padding:14px 18px;display:flex;align-items:center;gap:12px;color:#fff}
+  .road-head-c1{background:linear-gradient(135deg,#6366f1,#4f46e5)}
+  .road-head-c2{background:linear-gradient(135deg,#0ea5e9,#0284c7)}
+  .road-head-c3{background:linear-gradient(135deg,#10b981,#059669)}
+  .road-head-c4{background:linear-gradient(135deg,#f59e0b,#d97706)}
+  .road-badge{width:38px;height:38px;border-radius:50%;background:rgba(255,255,255,.25);display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:800;flex-shrink:0}
+  .road-info{flex:1}
+  .road-name{font-size:16px;font-weight:700;margin-bottom:2px}
+  .road-tagline{font-size:12px;opacity:.85}
+  .road-labels{display:flex;gap:6px}
+  .road-label{font-size:10px;background:rgba(255,255,255,.2);padding:2px 8px;border-radius:10px;font-weight:600}
+  .road-body{padding:16px 18px}
+  .road-meta{display:grid;grid-template-columns:repeat(3,1fr);background:#f9fafb;border-bottom:1px solid var(--border)}
+  .road-meta-item{padding:9px 14px;text-align:center;border-right:1px solid var(--border)}
+  .road-meta-item:last-child{border-right:none}
+  .road-meta-label{font-size:10px;color:var(--muted);margin-bottom:2px;text-transform:uppercase;letter-spacing:.3px}
+  .road-meta-val{font-size:12px;font-weight:700;color:var(--text)}
+  .road-steps{display:flex;gap:0;margin:12px 0;background:#f9fafb;border-radius:var(--radius-sm);overflow:hidden;border:1px solid var(--border)}
+  .road-step{flex:1;padding:9px 8px;text-align:center;position:relative;font-size:12px}
+  .road-step:not(:last-child){border-right:1px solid var(--border)}
+  .road-step-num{width:20px;height:20px;border-radius:50%;background:var(--accent);color:#fff;font-size:10px;font-weight:700;display:flex;align-items:center;justify-content:center;margin:0 auto 4px}
+  .road-step-text{line-height:1.3;color:var(--text)}
 
-  /* 三角 */
-  .triangle{display:flex;flex-direction:column;align-items:center;margin:18px 0}
-  .tri-top{background:var(--accent);color:#fff;padding:12px 32px;border-radius:var(--radius-sm);font-weight:700;margin-bottom:8px;position:relative}
-  .tri-top::after{content:"";position:absolute;bottom:-8px;left:50%;transform:translateX(-50%);border-left:10px solid transparent;border-right:10px solid transparent;border-top:10px solid var(--accent)}
-  .tri-bottom{display:flex;gap:12px}
-  .tri-item{background:var(--card);border:2px solid var(--border);padding:12px 20px;border-radius:var(--radius-sm);text-align:center;font-size:13px;min-width:120px}
+  /* 警示框 */
+  .alert{border-radius:var(--radius-sm);padding:13px 16px;margin:12px 0;font-size:14px;display:flex;gap:10px;align-items:flex-start}
+  .alert-icon{font-size:16px;flex-shrink:0;margin-top:1px}
+  .alert.danger{background:#fef2f2;border:1px solid #fecaca;color:#991b1b}
+  .alert.warn{background:#fffbeb;border:1px solid #fde68a;color:#92400e}
+  .alert.info{background:#eff6ff;border:1px solid #bfdbfe;color:#1e40af}
+  .alert.success{background:#f0fdf4;border:1px solid #bbf7d0;color:#166534}
+
+  /* Stop Doing 雷区卡片 */
+  .stop-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:14px;margin:16px 0}
+  .stop-card{border-radius:var(--radius);border:1px solid #fecaca;background:#fef2f2;overflow:hidden}
+  .stop-card-head{background:#ef4444;color:#fff;padding:10px 16px;display:flex;align-items:center;gap:8px;font-weight:700;font-size:14px}
+  .stop-card-body{padding:14px 16px;font-size:13px;line-height:1.8}
+  .stop-card-body li{margin:6px 0;color:#7f1d1d}
+  .do-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:14px;margin:16px 0}
+  .do-card{border-radius:var(--radius);border:1px solid #bbf7d0;background:#f0fdf4;overflow:hidden}
+  .do-card-head{background:#16a34a;color:#fff;padding:10px 16px;display:flex;align-items:center;gap:8px;font-weight:700;font-size:14px}
+  .do-card-body{padding:14px 16px;font-size:13px;line-height:1.8;color:#166534}
+
+  /* 关系进阶阶梯 */
+  .ladder{display:flex;flex-direction:column;gap:0;margin:16px 0}
+  .ladder-step{display:flex;align-items:stretch;position:relative}
+  .ladder-line{width:3px;background:var(--border);margin:0 22px;flex-shrink:0}
+  .ladder-dot{width:28px;height:28px;border-radius:50%;background:var(--accent);color:#fff;font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin:14px 12px 0 0;position:relative;z-index:1}
+  .ladder-content{flex:1;padding:10px 0 16px}
+  .ladder-title{font-weight:700;font-size:14px;margin-bottom:4px}
+  .ladder-desc{font-size:13px;color:var(--muted)}
+  .ladder-tag{font-size:10px;padding:1px 8px;border-radius:10px;background:var(--accent-light);color:var(--accent-dark);font-weight:600;display:inline-block;margin-top:4px}
+
+  /* 总览 course map */
+  .course-map{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin:16px 0}
+  .course-part{border-radius:var(--radius);border:2px solid var(--border);overflow:hidden;transition:.2s}
+  .course-part:hover{border-color:var(--accent);transform:translateY(-2px);box-shadow:0 6px 20px rgba(99,102,241,.15)}
+  .course-part-head{padding:12px 16px;font-weight:700;font-size:14px;display:flex;align-items:center;gap:8px}
+  .course-part-head.c1{background:linear-gradient(135deg,var(--accent-light),#c7d2fe);color:var(--accent-dark)}
+  .course-part-head.c2{background:linear-gradient(135deg,#d1fae5,#a7f3d0);color:#065f46}
+  .course-part-head.c3{background:linear-gradient(135deg,#fee2e2,#fecaca);color:#991b1b}
+  .course-part-head.c4{background:linear-gradient(135deg,#fef3c7,#fde68a);color:#92400e}
+  .course-part-body{padding:12px 16px;font-size:13px;color:var(--muted);line-height:1.7;background:var(--card)}
+  .course-part-num{width:24px;height:24px;border-radius:50%;background:rgba(0,0,0,.1);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800}
 
   /* 响应式 */
   @media(max-width:900px){
-    .container{flex-direction:column;padding:16px}
+    .container{flex-direction:column;padding:14px}
     .sidebar{width:100%;position:static;height:auto}
-    .header h1{font-size:24px}
+    .header h1{font-size:22px}
+    .course-map{grid-template-columns:1fr 1fr}
+    .stop-grid,.do-grid{grid-template-columns:1fr}
   }
-
-  /* 来源标注 */
-  .source{font-size:11px;color:var(--muted);margin-top:8px;padding-top:8px;border-top:1px dashed var(--border)}
-
-  /* === 路的信息图卡片 === */
-  .road-card{background:var(--card);border-radius:var(--radius);border:1px solid var(--border);margin-bottom:16px;overflow:hidden}
-  .road-top{padding:14px 18px;display:flex;align-items:center;gap:12px}
-  .road-num{width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;color:#fff;flex-shrink:0}
-  .road-name{flex:1}
-  .road-title{font-size:16px;font-weight:700;margin-bottom:2px}
-  .road-sub{font-size:12px;color:var(--muted)}
-  .road-meta{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-top:1px solid var(--border);border-bottom:1px solid var(--border);background:#fafafa}
-  .road-meta-item{padding:10px 14px;text-align:center;border-right:1px solid var(--border)}
-  .road-meta-item:last-child{border-right:none}
-  .road-meta-label{font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;margin-bottom:3px}
-  .road-meta-text{font-size:12px;font-weight:600;color:var(--text)}
-  .road-body{padding:18px}
-
-  /* 横向步骤 */
-  .road-flow{display:flex;gap:0;align-items:stretch;margin:14px 0}
-  .road-flow-step{flex:1;text-align:center;padding:10px 6px;position:relative}
-  .road-flow-step:not(:last-child)::after{content:"";position:absolute;right:0;top:50%;width:1px;height:60%;background:var(--border);transform:translateY(-50%)}
-  .road-flow-num{width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:#fff;margin:0 auto 6px}
-  .road-flow-text{font-size:12px;color:var(--text);line-height:1.4}
-
-  /* 话术/案例卡片 */
-  .road-quote{background:#f8fafc;border-left:3px solid var(--accent);border-radius:0 var(--radius-sm) var(--radius-sm) 0;padding:12px 16px;margin:12px 0;font-size:13px;line-height:1.7}
-  .road-quote.case{border-left-color:var(--warning);background:#fffbeb}
-  .road-quote.warn{border-left-color:var(--danger);background:#fef2f2}
-  .road-quote.ok{border-left-color:var(--success);background:#f0fdf4}
-  .road-quote-label{font-size:10px;font-weight:700;letter-spacing:.5px;color:var(--muted);margin-bottom:4px;text-transform:uppercase}
-
-  /* 清单 */
-  .road-check{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:8px;margin:10px 0}
-  .road-check-item{display:flex;align-items:flex-start;gap:8px;font-size:13px;padding:8px 10px;background:#fafafa;border-radius:var(--radius-sm)}
-  .road-check-box{width:16px;height:16px;border:2px solid var(--accent);border-radius:4px;flex-shrink:0;margin-top:1px}
-
-  /* 小标签 */
-  .mini-tag{font-size:10px;padding:2px 8px;border-radius:10px;font-weight:600;display:inline-block;margin-right:4px}
+  @media(max-width:560px){
+    .course-map{grid-template-columns:1fr}
+    .flow{flex-direction:column}
+    .flow-arrow{transform:rotate(90deg);padding:4px 0;justify-content:center}
+  }
 </style>
 </head>
 <body>
 
 <!-- 顶部 -->
 <div class="header">
-  <h1>约到KP完整课程体系</h1>
-  <div class="sub">整合：第39期业务共创 + 前台对接攻略 + 隐藏身份攻略 + Top Sales案例 + 特金攻坚 + 丸司方法论</div>
-  <div class="badge">BD基本功第一课 · 客情维护5阶段第一步</div>
+  <div class="course-label">覆盖攻坚5步法 · 第1课</div>
+  <h1>搞定KP：如何找到并约到KP</h1>
+  <div class="sub">从"不知道KP是谁"到"见到面、聊起来"——BD拜访基本功第一课</div>
+  <div class="header-meta">
+    <div class="header-meta-item">🎯 目标学员：全体BD</div>
+    <div class="header-meta-item">⏱ 课时：约45分钟</div>
+    <div class="header-meta-item">📦 含工具 + 话术 + 雷区</div>
+    <div class="header-meta-item">🔗 前置课：无</div>
+  </div>
 </div>
 
 <div class="container">
@@ -183,821 +200,648 @@
 <aside class="sidebar">
   <div class="nav">
     <div class="nav-title">课程导航</div>
-    <a class="nav-item active" href="#m-overview"><span class="num">#</span>课程总逻辑</a>
-    <a class="nav-item" href="#m-import"><span class="num">0</span>课前认知导入</a>
-    <a class="nav-item" href="#m-0"><span class="num">1</span>MODULE 0 · 破冰</a>
-    <a class="nav-item" href="#m-1"><span class="num">2</span>MODULE 1 · KP认知</a>
-    <a class="nav-item" href="#m-2"><span class="num">3</span>MODULE 2 · 5条路总览</a>
-    <a class="nav-item" href="#m-2-1" style="padding-left:28px;font-size:13px;color:var(--muted)"><span class="num">3a</span>路1 · 问小人物</a>
-    <a class="nav-item" href="#m-2-2" style="padding-left:28px;font-size:13px;color:var(--muted)"><span class="num">3b</span>路2 · 扒信息</a>
-    <a class="nav-item" href="#m-2-3" style="padding-left:28px;font-size:13px;color:var(--muted)"><span class="num">3c</span>路3 · 顺藤摸瓜</a>
-    <a class="nav-item" href="#m-2-4" style="padding-left:28px;font-size:13px;color:var(--muted)"><span class="num">3d</span>路4 · 隐藏身份</a>
-    <a class="nav-item" href="#m-2-5" style="padding-left:28px;font-size:13px;color:var(--muted)"><span class="num">3e</span>路5 · 从下往上</a>
-    <a class="nav-item" href="#m-3"><span class="num">4</span>MODULE 3 · 避坑</a>
-    <a class="nav-item" href="#m-4"><span class="num">5</span>MODULE 4 · Top Sales</a>
-    <a class="nav-item" href="#m-5"><span class="num">6</span>MODULE 5 · 进阶</a>
-    <a class="nav-item" href="#m-tools"><span class="num">T</span>工具包</a>
-    <a class="nav-item" href="#m-points"><span class="num">N</span>知识点清单</a>
+    <a class="nav-item active" href="#part-overview">
+      <span class="nav-num">总</span>课程总览
+    </a>
+    <hr class="nav-divider">
+    <a class="nav-item" href="#part-method">
+      <span class="nav-num">1</span>找KP的方法
+    </a>
+    <a class="nav-item nav-sub" href="#road-1">路1 · 直接上门</a>
+    <a class="nav-item nav-sub" href="#road-2">路2 · 公开信息渠道</a>
+    <a class="nav-item nav-sub" href="#road-3">路3 · 引荐</a>
+    <a class="nav-item nav-sub" href="#road-4">路4 · 先价值后身份</a>
+    <hr class="nav-divider">
+    <a class="nav-item" href="#part-stop">
+      <span class="nav-num">2</span>Stop Doing List
+    </a>
+    <hr class="nav-divider">
+    <a class="nav-item" href="#part-next">
+      <span class="nav-num">3</span>关系进阶预告
+    </a>
   </div>
 </aside>
 
 <!-- 主内容 -->
 <main class="main">
 
-<!-- 课程总逻辑 -->
-<div class="module" id="m-overview">
-  <div class="module-header active" onclick="toggle(this)">
-    <h2><span class="module-tag">总览</span>课程总逻辑</h2>
-    <span class="toggle">&#9662;</span>
+<!-- ===== 总览 ===== -->
+<div class="module" id="part-overview">
+  <div class="module-header open" onclick="toggle(this)">
+    <div class="module-title">
+      <span class="module-tag">总览</span>
+      <h2>课程总览</h2>
+    </div>
+    <span class="toggle">▾</span>
   </div>
   <div class="module-body open">
-    <h3><span class="icon">?</span>核心问题</h3>
-    <p>去一家公司，你怎么找到那个<strong>"说行就行"</strong>的人？</p>
-
-    <h3><span class="icon">!</span>三层障碍 × 解法</h3>
-    <div class="flow">
-      <div class="flow-step"><div class="flow-num">1</div><div class="flow-title">不知道KP是谁</div><div class="flow-desc">情报收集：问小人物 / 扒信息 / 四类客户分法</div></div>
-      <div class="flow-arrow">→</div>
-      <div class="flow-step"><div class="flow-num">2</div><div class="flow-title">知道但接触不到</div><div class="flow-desc">前台对接 / 隐藏身份 / 顺藤摸瓜 / 借力</div></div>
-      <div class="flow-arrow">→</div>
-      <div class="flow-step"><div class="flow-num">3</div><div class="flow-title">见到了说不动</div><div class="flow-desc">价值传递 / 痛点共鸣 / 合作思维</div></div>
-    </div>
-
-    <h3><span class="icon">&#9670;</span>5阶段关系演进</h3>
-    <p>找到KP之后，进入关系经营：</p>
-    <table>
-      <tr><th>阶段</th><th>状态</th><th>目标</th><th>标记</th></tr>
-      <tr><td>阶段一</td><td>陌生</td><td>找到说得算的人</td><td><strong style="color:var(--accent)">← 本课</strong></td></tr>
-      <tr><td>阶段二</td><td>初识</td><td>让他觉得你知道他的问题</td><td></td></tr>
-      <tr><td>阶段三</td><td>有感知</td><td>每次接触都有价值积累</td><td></td></tr>
-      <tr><td>阶段四</td><td>考验</td><td>危机时刻扛住，信任快速加深</td><td></td></tr>
-      <tr><td>阶段五</td><td>深度绑定</td><td>他主动找你商量生意</td><td></td></tr>
-    </table>
-    <div class="alert-success"><strong>核心原则：</strong>关系不可跳级，每个阶段都有具体行动，没有捷径。</div>
-  </div>
-</div>
-
-<!-- 课前认知导入 -->
-<div class="module" id="m-import">
-  <div class="module-header" onclick="toggle(this)">
-    <h2><span class="module-tag">课前</span>课堂外知识点 · 找到决策者</h2>
-    <span class="toggle">&#9662;</span>
-  </div>
-  <div class="module-body">
-    <div class="source">来源：第39期业务共创大表 · 课堂外知识分享</div>
-
-    <h4>一个真实规律</h4>
-    <p>一群人面对同一个问题——大多数人不开口，少数人说<strong>"我觉得应该这样"</strong>，最后大家跟着走。</p>
-
-    <div class="steps">
-      <div class="step">
-        <div class="step-num">1</div>
-        <div class="step-body">
-          <div class="step-title">普通人</div>
-          <div class="step-desc">等别人先表态，随大流</div>
-        </div>
-      </div>
-      <div class="step">
-        <div class="step-num">2</div>
-        <div class="step-body">
-          <div class="step-title">有主见的人</div>
-          <div class="step-desc">主动判断，主动开口——这样的人大概占 <strong style="color:var(--accent)">1/4</strong></div>
-        </div>
-      </div>
-    </div>
 
     <div class="lead">
-      <strong>找到KP的本质：</strong>在这家公司里，找到那个"对这件事有主见、开口就算数"的人。
-      职位高≠说了算，热情配合≠有决策权。要找的是：他说行，事情就能推进的那个人。
-    </div>
-  </div>
-</div>
-
-<!-- MODULE 0 -->
-<div class="module" id="m-0">
-  <div class="module-header" onclick="toggle(this)">
-    <h2><span class="module-tag">破冰</span>MODULE 0 · 隐喻体验活动</h2>
-    <span class="toggle">&#9662;</span>
-  </div>
-  <div class="module-body">
-    <div class="source">设计原则：活动本身不涉及BD场景，学员全力投入后自己发现映射关系（MTP隐喻式方法论）</div>
-
-    <div class="tool-card" style="border-color:#c4b5fd">
-      <div class="tool-title" style="color:#7c3aed">活动卡片：找到那个人</div>
-      <div class="tool-body">
-        <p><strong>一句话目标：</strong>在10人小组中，找出隐藏的"真正决策者"，体验找到KP的真实感受</p>
-        <p><strong>玩法3步：</strong></p>
-        <ol>
-          <li>每人拿到角色卡，有人是"真决策者"但不能主动说</li>
-          <li>全组通过问答、交换信息、观察行为来判断谁是决策者</li>
-          <li>时间到，公布答案，复盘"你是怎么找到的/被什么误导了"</li>
-        </ol>
-        <p><strong style="color:#7c3aed">Aha时刻预告：</strong>你会发现——最先热情接待你的，不一定是说了算的人</p>
-      </div>
+      <strong>核心问题：</strong>去一家酒店，你怎么找到那个"说行就行、说不行就不行"的人？
     </div>
 
-    <h4>反思映射问题</h4>
-    <ul>
-      <li>"你们用了什么方法找到的？"</li>
-      <li>"什么信息让你判断对了/判断错了？"</li>
-      <li>"这和你去开发一家新客户，有什么一模一样的地方？"</li>
-    </ul>
-  </div>
-</div>
+    <h3><span class="icon">1</span>本课程的位置</h3>
+    <p>《搞定KP》是《覆盖攻坚5步法》系列第1课，解决最前置的问题：<strong>找到并约到KP</strong>。</p>
 
-<!-- MODULE 1 -->
-<div class="module" id="m-1">
-  <div class="module-header" onclick="toggle(this)">
-    <h2><span class="module-tag">认知</span>MODULE 1 · KP到底是什么人？</h2>
-    <span class="toggle">&#9662;</span>
-  </div>
-  <div class="module-body">
-    <blockquote>
-      <strong>痛点共鸣：</strong>老王跑了一家酒店3个月，每次见运营经理，聊得很开心，方案改了一版又一版。最后要签合同了——运营经理说："这事我做不了主，要问我们总经理。"<br><br>3个月，白费了。
-    </blockquote>
-
-    <h3><span class="icon">!</span>一句话定义（人话版）</h3>
-    <div class="alert">
-      <strong>KP = 这件事，他说行就行，他说不行就不行。</strong><br>
-      不等于职位最高，是对这件事有最终决定权的人。
+    <div style="overflow-x:auto;margin:16px 0">
+      <table>
+        <thead>
+          <tr>
+            <th>课程编号</th>
+            <th>课程名称</th>
+            <th>解决的问题</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="background:#e0e7ff">
+            <td><strong>第1课 ← 本课</strong></td>
+            <td><strong>《搞定KP：如何找到并约到KP》</strong></td>
+            <td>约到KP</td>
+          </tr>
+          <tr>
+            <td>第2课</td>
+            <td>《开口即赢：3分钟讲清合作价值》</td>
+            <td>有效的销售和说服</td>
+          </tr>
+          <tr>
+            <td>第3课</td>
+            <td>《见招拆招：常见拒绝话术破解》</td>
+            <td>会处理反对意见</td>
+          </tr>
+          <tr>
+            <td>第4课</td>
+            <td>《死磕到底：高效跟进不掉单》</td>
+            <td>跟进 Follow Up</td>
+          </tr>
+          <tr>
+            <td>第5课</td>
+            <td>《签完别跑：上架后快速起量指南》</td>
+            <td>会运营能提产</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
 
-    <h3><span class="icon">&#9733;</span>KP的三种类型</h3>
-    <table>
-      <tr><th>类型</th><th>说明</th><th>识别方式</th></tr>
-      <tr><td><strong>拍板人</strong></td><td>最终决策，他点头才算</td><td>开会时最后发言的人 / 大家看他脸色的人</td></tr>
-      <tr><td><strong>签字人</strong></td><td>走流程签字，不一定真决策</td><td>行政/财务负责人，合同经他但方向不是他定</td></tr>
-      <tr><td><strong>影响人</strong></td><td>不拍板但话语权大，能左右结果</td><td>KP信任的顾问/老员工/技术负责人</td></tr>
-    </table>
-    <div class="alert-warn"><strong>重要：</strong>三类人可能不是同一个人。要同时识别，分别对应。</div>
-
-    <h3><span class="icon">&#128204;</span>三问定KP（带走工具卡）</h3>
-    <div class="dialogue dialogue-success">
-      <strong>Q1：</strong>这件事，您能直接决定吗？<br>
-      <strong>Q2：</strong>上次类似的合作，是哪位在主导？<br>
-      <strong>Q3：</strong>如果他不在，这事还能推进吗？<br><br>
-      <strong style="color:var(--accent-dark)">三问答案指向同一个人 → 他就是KP</strong>
-    </div>
-
-    <h3><span class="icon">&#9851;</span>KP会变：动态更新机制</h3>
-    <ul>
-      <li>项目推进阶段不同，KP可能换人</li>
-      <li>公司架构调整后要重新确认</li>
-      <li><strong>信号：</strong>之前推进顺畅，突然卡住了 → 可能KP换了，重新找</li>
-    </ul>
-  </div>
-</div>
-
-<!-- MODULE 2 总览 -->
-<div class="module" id="m-2">
-  <div class="module-header active" onclick="toggle(this)">
-    <h2><span class="module-tag">核心</span>MODULE 2 · 5条路总览</h2>
-    <span class="toggle">&#9662;</span>
-  </div>
-  <div class="module-body open">
-
-    <h3><span class="icon">0</span>前置：四类客户分层</h3>
-    <div class="source">来源：丸司Top Sales方法论</div>
-    <p>在找KP之前，先判断这家客户值不值得投入，投多少精力。</p>
-    <table>
-      <tr><th>类型</th><th>判断标准</th><th>投入策略</th></tr>
-      <tr><td><strong style="color:var(--success)">A类</strong></td><td>高价值 + 高合作意愿</td><td>重点投入，快速推进，找最高KP直接谈</td></tr>
-      <tr><td><strong style="color:var(--warning)">B类</strong></td><td>高价值 + 低合作意愿</td><td>重点突破，找到阻力点，持续渗透</td></tr>
-      <tr><td><strong style="color:var(--info)">C类</strong></td><td>低价值 + 高合作意愿</td><td>维持关系，低成本维护，不做大投入</td></tr>
-      <tr><td><strong style="color:var(--muted)">D类</strong></td><td>低价值 + 低合作意愿</td><td>暂不投入，等时机变化</td></tr>
-    </table>
-    <div class="lead"><strong>人话说：</strong>不是每家公司都值得你花大力气找KP。先分层，再决定用哪种方法、投多少时间。</div>
-
-    <h3><span class="icon">&#9733;</span>5条路一句话速查</h3>
-    <div class="tool-grid">
-      <div class="tool-card" style="border-color:#c4b5fd" onclick="scrollToId('m-2-1')">
-        <div class="tool-title" style="color:#7c3aed">路1 · 问小人物</div>
-        <div class="tool-body">
-          <strong>适用：</strong>所有场景，最快的信息来源<br>
-          <strong>核心：</strong>前台/保安/收银员不设防，先建关系再套信息<br>
-          <strong>结果：</strong>知道KP是谁、什么时候在、性格如何
-        </div>
-      </div>
-      <div class="tool-card" style="border-color:#93c5fd" onclick="scrollToId('m-2-2')">
-        <div class="tool-title" style="color:#2563eb">路2 · 扒信息</div>
-        <div class="tool-body">
-          <strong>适用：</strong>拜访前必做，见面之前就知道KP<br>
-          <strong>核心：</strong>企查查+招聘网站+社交媒体，20分钟锁定<br>
-          <strong>结果：</strong>拿到KP的名字、职位、近期动态
-        </div>
-      </div>
-      <div class="tool-card" style="border-color:#86efac" onclick="scrollToId('m-2-3')">
-        <div class="tool-title" style="color:#16a34a">路3 · 顺藤摸瓜</div>
-        <div class="tool-body">
-          <strong>适用：</strong>见到了人但发现不是KP<br>
-          <strong>核心：</strong>让非KP主动引荐你到KP面前<br>
-          <strong>结果：</strong>拿到KP联系方式或直接被约见
-        </div>
-      </div>
-      <div class="tool-card" style="border-color:#fdba74" onclick="scrollToId('m-2-4')">
-        <div class="tool-title" style="color:#ea580c">路4 · 隐藏身份</div>
-        <div class="tool-body">
-          <strong>适用：</strong>高防备客户，正面攻不进去<br>
-          <strong>核心：</strong>以非BD身份出现，先给价值再亮明<br>
-          <strong>结果：</strong>降低防备，KP主动来找你
-        </div>
-      </div>
-      <div class="tool-card" style="border-color:#fca5a5" onclick="scrollToId('m-2-5')">
-        <div class="tool-title" style="color:#dc2626">路5 · 从下往上渗透</div>
-        <div class="tool-body">
-          <strong>适用：</strong>大客户，KP很难直接接触到<br>
-          <strong>核心：</strong>先搞定一线员工，让内部人帮你说话<br>
-          <strong>结果：</strong>内部口碑推动，KP主动想了解你
-        </div>
-      </div>
-    </div>
-
-    <h3><span class="icon">&#128161;</span>什么时候用哪条路？</h3>
-    <table>
-      <tr><th>场景</th><th>推荐用</th><th>原因</th></tr>
-      <tr><td>第一次拜访陌生客户</td><td>路1 + 路2</td><td>先扒信息知道是谁，再问前台确认在不在</td></tr>
-      <tr><td>见到了运营经理但不是KP</td><td>路3</td><td>让他引荐你到真正的KP面前</td></tr>
-      <tr><td>正面BD被拒绝了3次</td><td>路4</td><td>换个身份混进去，降低防备</td></tr>
-      <tr><td>大客户KP根本见不到</td><td>路5</td><td>搞定内部员工，形成口碑链</td></tr>
-      <tr><td>紧急要见KP但完全没资源</td><td>路1 + 路3</td><td>前台套信息→让前台引荐，当天推进</td></tr>
-    </table>
-  </div>
-</div>
-
-<!-- 路1 详细 -->
-<div class="module" id="m-2-1">
-  <div class="module-header" onclick="toggle(this)">
-    <h2><span class="module-tag">路1</span>路1 · 问小人物</h2>
-    <span class="toggle">&#9662;</span>
-  </div>
-  <div class="module-body">
-    <div class="road-card">
-      <div class="road-top" style="border-left:4px solid #7c3aed">
-        <div class="road-num" style="background:#7c3aed">1</div>
-        <div class="road-name"><div class="road-title">问小人物</div><div class="road-sub">前台/保安/收银员是最真实的情报源</div></div>
-      </div>
-      <div class="road-meta">
-        <div class="road-meta-item"><div class="road-meta-label">适用</div><div class="road-meta-text">所有场景</div></div>
-        <div class="road-meta-item"><div class="road-meta-label">核心</div><div class="road-meta-text">先建关系再套信息</div></div>
-        <div class="road-meta-item"><div class="road-meta-label">结果</div><div class="road-meta-text">知道KP是谁+何时在</div></div>
-      </div>
-      <div class="road-body">
-        <div class="road-flow">
-          <div class="road-flow-step"><div class="road-flow-num" style="background:#7c3aed">1</div><div class="road-flow-text">记住前台名字<br>带小礼物</div></div>
-          <div class="road-flow-step"><div class="road-flow-num" style="background:#7c3aed">2</div><div class="road-flow-text">节日问候<br>真诚夸赞</div></div>
-          <div class="road-flow-step"><div class="road-flow-num" style="background:#7c3aed">3</div><div class="road-flow-text">自然问出<br>KP信息</div></div>
-          <div class="road-flow-step"><div class="road-flow-num" style="background:#7c3aed">4</div><div class="road-flow-text">让前台<br>帮你通报</div></div>
-        </div>
-
-        <div class="road-quote">
-          <div class="road-quote-label">核心话术</div>
-          "你们这边合作是谁负责？" + "老板一般什么时候方便？" + "他好说话吗？"
-        </div>
-
-        <div class="road-quote warn">
-          <div class="road-quote-label">避坑</div>
-          不要暴露强BD目的，不要让前台觉得"帮你引荐会惹麻烦"
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- 路2 详细 -->
-<div class="module" id="m-2-2">
-  <div class="module-header" onclick="toggle(this)">
-    <h2><span class="module-tag">路2</span>路2 · 拜访前扒信息</h2>
-    <span class="toggle">&#9662;</span>
-  </div>
-  <div class="module-body">
-    <div class="road-card">
-      <div class="road-top" style="border-left:4px solid #2563eb">
-        <div class="road-num" style="background:#2563eb">2</div>
-        <div class="road-name"><div class="road-title">拜访前扒信息</div><div class="road-sub">见面之前就知道KP是谁，20分钟搞定</div></div>
-      </div>
-      <div class="road-meta">
-        <div class="road-meta-item"><div class="road-meta-label">适用</div><div class="road-meta-text">拜访前必做</div></div>
-        <div class="road-meta-item"><div class="road-meta-label">核心</div><div class="road-meta-text">企查查+招聘+社交</div></div>
-        <div class="road-meta-item"><div class="road-meta-label">结果</div><div class="road-meta-text">锁定KP身份</div></div>
-      </div>
-      <div class="road-body">
-        <div class="road-check">
-          <div class="road-check-item"><div class="road-check-box"></div><div><strong>企查查</strong><br>法人/股东/实控人</div></div>
-          <div class="road-check-item"><div class="road-check-box"></div><div><strong>官网</strong><br>高管名单/近期动态</div></div>
-          <div class="road-check-item"><div class="road-check-box"></div><div><strong>招聘网站</strong><br>谁在招人=谁管这块</div></div>
-          <div class="road-check-item"><div class="road-check-box"></div><div><strong>社交媒体</strong><br>老板账号/关注点</div></div>
-          <div class="road-check-item"><div class="road-check-box"></div><div><strong>问同行</strong><br>采购谁说了算</div></div>
-          <div class="road-check-item"><div class="road-check-box"></div><div><strong>行业群</strong><br>KP发过言吗</div></div>
-        </div>
-
-        <div class="road-quote case">
-          <div class="road-quote-label">真实案例</div>
-          老张搜招聘网站，发现"旅游电商部总监"正在招"对接飞猪/美团/携程"的运营——直接锁定KP，5分钟打开局面。
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- 路3 详细 -->
-<div class="module" id="m-2-3">
-  <div class="module-header" onclick="toggle(this)">
-    <h2><span class="module-tag">路3</span>路3 · 顺藤摸瓜</h2>
-    <span class="toggle">&#9662;</span>
-  </div>
-  <div class="module-body">
-    <div class="road-card">
-      <div class="road-top" style="border-left:4px solid #16a34a">
-        <div class="road-num" style="background:#16a34a">3</div>
-        <div class="road-name"><div class="road-title">顺藤摸瓜</div><div class="road-sub">让非KP主动引荐你到KP面前</div></div>
-      </div>
-      <div class="road-meta">
-        <div class="road-meta-item"><div class="road-meta-label">适用</div><div class="road-meta-text">见到了但不是KP</div></div>
-        <div class="road-meta-item"><div class="road-meta-label">核心</div><div class="road-meta-text">让他带你上去</div></div>
-        <div class="road-meta-item"><div class="road-meta-label">结果</div><div class="road-meta-text">拿到联系方式</div></div>
-      </div>
-      <div class="road-body">
-        <div class="road-quote">
-          <div class="road-quote-label">话术A · 直接版</div>
-          "我想推进这件事，最终决策在您这边，还是需要哪位领导点头？"
-        </div>
-        <div class="road-quote">
-          <div class="road-quote-label">话术B · 中间版</div>
-          "后续推进时，您觉得我还需要跟哪位老师同步一下？"
-        </div>
-        <div class="road-quote">
-          <div class="road-quote-label">话术C · 最软版</div>
-          "方便安排和您领导一起汇报一下吗？"
-        </div>
-
-        <div class="road-quote case">
-          <div class="road-quote-label">真实案例</div>
-          小王见到运营经理，发现他做不了决定，直接问能否引荐领导——运营经理帮他约到了总经理，还提前说了好话。
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- 路4 详细 -->
-<div class="module" id="m-2-4">
-  <div class="module-header" onclick="toggle(this)">
-    <h2><span class="module-tag">路4</span>路4 · 隐藏身份混进去</h2>
-    <span class="toggle">&#9662;</span>
-  </div>
-  <div class="module-body">
-    <div class="road-card">
-      <div class="road-top" style="border-left:4px solid #ea580c">
-        <div class="road-num" style="background:#ea580c">4</div>
-        <div class="road-name"><div class="road-title">隐藏身份混进去</div><div class="road-sub">高防备客户专用，先给价值再亮明身份</div></div>
-      </div>
-      <div class="road-meta">
-        <div class="road-meta-item"><div class="road-meta-label">适用</div><div class="road-meta-text">正面被拒3次+</div></div>
-        <div class="road-meta-item"><div class="road-meta-label">核心</div><div class="road-meta-text">非BD身份出现</div></div>
-        <div class="road-meta-item"><div class="road-meta-label">结果</div><div class="road-meta-text">KP主动找你</div></div>
-      </div>
-      <div class="road-body">
-        <div class="road-flow">
-          <div class="road-flow-step"><div class="road-flow-num" style="background:#ea580c">1</div><div class="road-flow-text">顾客身份<br>体验产品</div></div>
-          <div class="road-flow-step"><div class="road-flow-num" style="background:#ea580c">2</div><div class="road-flow-text">行业圈子<br>输出价值</div></div>
-          <div class="road-flow-step"><div class="road-flow-num" style="background:#ea580c">3</div><div class="road-flow-text">一直盯着<br>制造偶遇</div></div>
-          <div class="road-flow-step"><div class="road-flow-num" style="background:#ea580c">4</div><div class="road-flow-text">社交渗透<br>朋友圈互动</div></div>
-        </div>
-
-        <div class="road-quote case">
-          <div class="road-quote-label">真实案例</div>
-          小李正面BD三次被拒，混进酒店行业协会群每周发行业数据，第3周景区总监主动私信想了解——当周约面谈，当月签约。
-        </div>
-
-        <div class="road-quote ok">
-          <div class="road-quote-label">亮身份最佳时机</div>
-          KP主动问你时 / 非正式场合放松时 / 2-3次自然交流后
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- 路5 详细 -->
-<div class="module" id="m-2-5">
-  <div class="module-header" onclick="toggle(this)">
-    <h2><span class="module-tag">路5</span>路5 · 从下往上渗透</h2>
-    <span class="toggle">&#9662;</span>
-  </div>
-  <div class="module-body">
-    <div class="road-card">
-      <div class="road-top" style="border-left:4px solid #dc2626">
-        <div class="road-num" style="background:#dc2626">5</div>
-        <div class="road-name"><div class="road-title">从下往上渗透</div><div class="road-sub">让内部人帮你说话，比你自己说一百遍有效</div></div>
-      </div>
-      <div class="road-meta">
-        <div class="road-meta-item"><div class="road-meta-label">适用</div><div class="road-meta-text">大客户KP见不到</div></div>
-        <div class="road-meta-item"><div class="road-meta-label">核心</div><div class="road-meta-text">搞定一线员工</div></div>
-        <div class="road-meta-item"><div class="road-meta-label">结果</div><div class="road-meta-text">KP主动想了解</div></div>
-      </div>
-      <div class="road-body">
-        <div class="road-flow">
-          <div class="road-flow-step"><div class="road-flow-num" style="background:#dc2626">1</div><div class="road-flow-text">搞定员工<br>解决小问题</div></div>
-          <div class="road-flow-step"><div class="road-flow-num" style="background:#dc2626">2</div><div class="road-flow-text">收集情报<br>了解KP习惯</div></div>
-          <div class="road-flow-step"><div class="road-flow-num" style="background:#dc2626">3</div><div class="road-flow-text">成为拥护者<br>帮你说话</div></div>
-          <div class="road-flow-step"><div class="road-flow-num" style="background:#dc2626">4</div><div class="road-flow-text">带方案见KP<br>不提产品</div></div>
-        </div>
-
-        <div class="road-quote ok">
-          <div class="road-quote-label">关键心法</div>
-          不带产品介绍，带"你们现在这个问题，我有个思路"——开场第一句不是介绍公司。
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- MODULE 3 -->
-<div class="module" id="m-3">
-  <div class="module-header" onclick="toggle(this)">
-    <h2><span class="module-tag">避坑</span>MODULE 3 · 假KP怎么识别和破局</h2>
-    <span class="toggle">&#9662;</span>
-  </div>
-  <div class="module-body">
-    <h3><span class="icon">&#9888;</span>假KP的3个识别信号</h3>
-    <div class="alert">
-      <strong>信号1：</strong>他说"这个我来帮你协调" → 他是传话筒，不是KP，真KP不需要"帮你协调"<br><br>
-      <strong>信号2：</strong>关键问题他永远"回去跟领导商量" → 他没有决策权，你在跟错人谈<br><br>
-      <strong>信号3：</strong>方案谈了一轮又一轮，没有任何实质推进 → 停下来，重新确认KP是谁
-    </div>
-
-    <h3><span class="icon">&#128172;</span>破局话术</h3>
-    <div class="dialogue">
-      <strong>直接版：</strong><br>
-      "王经理，我们聊了几次，我想直接确认一下——这种合作，您这边是可以直接推进的，还是还需要哪位领导最终点头？"<br><br>
-      <strong>委婉版：</strong><br>
-      "王经理，我们方向聊得挺一致了，我想下一步直接跟能做决定的老师汇报一下，您看是您来主导，还是需要拉上哪位领导一起？"
-    </div>
-    <div class="lead"><strong>人话说：</strong>直接问不丢人，比浪费3个月强。大多数人不问，是因为怕尴尬，但这个尴尬完全值得。</div>
-
-    <h3><span class="icon">&#128736;</span>被假KP带偏后的挽救</h3>
-    <ul>
-      <li>不要否定假KP（他还能帮你传话）</li>
-      <li>向假KP表达："我想找个机会，能不能请您帮我引荐一下您的领导"</li>
-      <li>实在引荐不了，换路：找前台/找其他员工/找行业联系人另辟蹊径</li>
-    </ul>
-  </div>
-</div>
-
-<!-- MODULE 4 -->
-<div class="module" id="m-4">
-  <div class="module-header" onclick="toggle(this)">
-    <h2><span class="module-tag">实战</span>MODULE 4 · Top Sales的完整打法</h2>
-    <span class="toggle">&#9662;</span>
-  </div>
-  <div class="module-body">
-    <h3><span class="icon">&#11088;</span>案例一：从0到区域TOP（3个月）</h3>
-    <div class="source">来源：Top Sales Case 案例一</div>
-    <p><strong>背景：</strong>进入全新区域，没有任何客户资源，完全陌生</p>
-
-    <div class="steps">
-      <div class="step"><div class="step-num">1</div><div class="step-body"><div class="step-title">拜访量是基础</div><div class="step-desc">每天必须完成固定拜访量，不达标不收工</div></div></div>
-      <div class="step"><div class="step-num">2</div><div class="step-body"><div class="step-title">第一通电话不谈合作</div><div class="step-desc">只说"我想来拜访一下，请教你们在这个区域的经验"——降低防备，提高见面率</div></div></div>
-      <div class="step"><div class="step-num">3</div><div class="step-body"><div class="step-title">见面第一件事：带小礼物</div><div class="step-desc">先聊对方感兴趣的话题（不是产品）</div></div></div>
-      <div class="step"><div class="step-num">4</div><div class="step-body"><div class="step-title">拿到老板直线电话</div><div class="step-desc">通过前台/员工/活动名单多线并进</div></div></div>
-      <div class="step"><div class="step-num">5</div><div class="step-body"><div class="step-title">拿到电话当天行动</div><div class="step-desc">发一条有价值的信息，不推销，只建立印象</div></div></div>
-      <div class="step"><div class="step-num">6</div><div class="step-body"><div class="step-title">积累标杆案例</div><div class="step-desc">每个成功客户都复盘记录，形成可复用的打法</div></div></div>
-    </div>
-    <div class="alert-success"><strong>结果：</strong>3个月从0到区域TOP</div>
-
-    <h3><span class="icon">&#11088;</span>案例二：真照的10年积淀打法</h3>
-    <div class="source">来源：特金攻坚-真照</div>
-    <p><strong>背景：</strong>10年OTA行业，带领团队100%达成目标，成绩提升100%</p>
-    <ul>
-      <li><strong>拜访必带数据：</strong>每次拜访都带行业数据/竞对分析/客户自己的历史数据，让KP觉得"你比他更了解他的业务"</li>
-      <li><strong>每次拜访有明确目的：</strong>拜访前想清楚"这次要获得什么"，不做无效拜访</li>
-      <li><strong>拜访后必复盘：</strong>KP今天状态如何/说了什么关键信息/下次切入点在哪</li>
-      <li><strong>合作性思维：</strong>不是"我要卖东西"，而是"我们一起解决你们的问题"</li>
-      <li><strong>建立专家形象：</strong>让对方觉得"飞猪这个人是这个区域最懂行的"</li>
-    </ul>
-
-    <blockquote>
-      <strong>核心金句（丸司）：</strong><br>
-      "一个好的销售，从来不是推销产品，而是帮客户解决问题。"
-    </blockquote>
-
-    <h3><span class="icon">&#9651;</span>销售核心能力三角</h3>
-    <div class="triangle">
-      <div class="tri-top">解决问题能力</div>
-      <div class="tri-bottom">
-        <div class="tri-item"><strong>情绪管理</strong><br>被拒不崩<br>被冷落不急</div>
-        <div class="tri-item"><strong>合作性强</strong><br>让KP觉得<br>你是"自己人"</div>
-      </div>
-    </div>
-    <ul>
-      <li><strong>解决问题能力：</strong>带着方案去，不带问题去</li>
-      <li><strong>情绪管理：</strong>被拒不崩，被冷落不急，每次被拒都是情报收集</li>
-      <li><strong>合作性强：</strong>让KP觉得你是"自己人"，不是来卖东西的</li>
-    </ul>
-  </div>
-</div>
-
-<!-- MODULE 5 -->
-<div class="module" id="m-5">
-  <div class="module-header" onclick="toggle(this)">
-    <h2><span class="module-tag">进阶</span>MODULE 5 · 找到KP之后怎么办</h2>
-    <span class="toggle">&#9662;</span>
-  </div>
-  <div class="module-body">
-    <div class="lead">找到KP只是第一步，进入客情5阶段关系演进</div>
-
+    <h3><span class="icon">2</span>三种情况 × 对应解法</h3>
     <div class="flow">
-      <div class="flow-step"><div class="flow-num">1</div><div class="flow-title">陌生</div><div class="flow-desc">找到说得算的人<br><strong style="color:var(--accent)">← 本课</strong></div></div>
+      <div class="flow-step hi">
+        <div class="flow-num">1</div>
+        <div class="flow-title">不知道KP是谁</div>
+        <div class="flow-desc">通过4条路找到KP是谁、在哪里</div>
+      </div>
       <div class="flow-arrow">→</div>
-      <div class="flow-step"><div class="flow-num">2</div><div class="flow-title">初识</div><div class="flow-desc">让他觉得你知道他的问题<br>带数据 / 聊痛点</div></div>
+      <div class="flow-step hi">
+        <div class="flow-num">2</div>
+        <div class="flow-title">知道但接触不到</div>
+        <div class="flow-desc">借力一线员工 / 引荐 / 先提供价值</div>
+      </div>
       <div class="flow-arrow">→</div>
-      <div class="flow-step"><div class="flow-num">3</div><div class="flow-title">有感知</div><div class="flow-desc">每次接触都有价值<br>接触质量 > 频率</div></div>
-      <div class="flow-arrow">→</div>
-      <div class="flow-step"><div class="flow-num">4</div><div class="flow-title">考验</div><div class="flow-desc">危机时刻扛住<br>关键时刻 = 100次拜访</div></div>
-      <div class="flow-arrow">→</div>
-      <div class="flow-step"><div class="flow-num">5</div><div class="flow-title">深度绑定</div><div class="flow-desc">他主动找你商量生意<br>终极状态</div></div>
+      <div class="flow-step" style="border-color:var(--border);opacity:.6">
+        <div class="flow-num" style="background:var(--muted)">3</div>
+        <div class="flow-title">见到了聊不拢</div>
+        <div class="flow-desc">→ 见第2-3课</div>
+      </div>
     </div>
 
-    <div class="alert-success"><strong>核心原则：</strong>关系不可跳级，每个阶段都有具体行动，没有捷径。</div>
-
-    <h3><span class="icon">&#127942;</span>课程交付节奏（每模块五步）</h3>
-    <div class="steps">
-      <div class="step"><div class="step-num">1</div><div class="step-body"><div class="step-title">痛点共鸣</div><div class="step-desc">先讲一个真实的"白跑故事"</div></div></div>
-      <div class="step"><div class="step-num">2</div><div class="step-body"><div class="step-title">老BD案例</div><div class="step-desc">真实对话体案例（小李/小王/老张/丸司/真照亲历）</div></div></div>
-      <div class="step"><div class="step-num">3</div><div class="step-body"><div class="step-title">3步干货</div><div class="step-desc">最多3条，直接能用，不讲理论</div></div></div>
-      <div class="step"><div class="step-num">4</div><div class="step-body"><div class="step-title">AI对练</div><div class="step-desc">模拟"前台套话"/"问非KP要引荐"/"破假KP"场景</div></div></div>
-      <div class="step"><div class="step-num">5</div><div class="step-body"><div class="step-title">带走工具</div><div class="step-desc">三问卡片 / 20分钟情报清单 / 话术模板A/B/C版</div></div></div>
+    <h3><span class="icon">3</span>本课结构</h3>
+    <div class="course-map">
+      <div class="course-part">
+        <div class="course-part-head c1"><div class="course-part-num">1</div>找KP的4条路</div>
+        <div class="course-part-body">直接上门拜访 / 公开信息渠道查询 / 同行与酒店引荐 / 先提供价值再亮身份</div>
+      </div>
+      <div class="course-part">
+        <div class="course-part-head c3"><div class="course-part-num">2</div>Stop Doing List</div>
+        <div class="course-part-body">风控红线 / 坑蒙拐骗类行为 / 最容易踩的坑</div>
+      </div>
+      <div class="course-part">
+        <div class="course-part-head c4"><div class="course-part-num">3</div>关系进阶预告</div>
+        <div class="course-part-body">找到KP之后怎么办 → 见面、建信任、推合作</div>
+      </div>
     </div>
+
+    <h3><span class="icon">!</span>先搞清楚：KP是什么人？</h3>
+    <div class="lead">
+      KP = Key Person，指<strong>最终拍板决定是否合作的那个人</strong>，不是职位最高的人，不是最热情的人，而是<strong>说"行"就行、说"不行"就不行</strong>的那个人。
+    </div>
+    <p>常见KP类型：</p>
+    <table>
+      <thead>
+        <tr><th>酒店类型</th><th>KP通常是</th><th>注意</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>单体小酒店</td><td>老板本人</td><td>老板娘也可能是KP</td></tr>
+        <tr><td>中型连锁门店</td><td>门店总经理/店长</td><td>需确认他是否有签约权</td></tr>
+        <tr><td>大型连锁</td><td>区域/城市负责人</td><td>前台/收益都是非KP</td></tr>
+        <tr><td>民宿/客栈</td><td>房东/运营负责人</td><td>有时委托第三方运营</td></tr>
+      </tbody>
+    </table>
+    <div class="alert warn">
+      <span class="alert-icon">⚠</span>
+      <div><strong>假KP陷阱：</strong>对方很热情、很愿意谈、说"没问题我来安排"，但其实他没有决策权。识别方法：直接问"关于合作的最终确认，是您来决定吗？"</div>
+    </div>
+
   </div>
 </div>
 
-<!-- 工具包 -->
-<div class="module" id="m-tools">
-  <div class="module-header" onclick="toggle(this)">
-    <h2><span class="module-tag">工具</span>完整工具包（6件套）</h2>
-    <span class="toggle">&#9662;</span>
-  </div>
-  <div class="module-body">
-    <div class="tool-grid">
-      <div class="tool-card">
-        <div class="tool-title">工具1 · 三问定KP卡片</div>
-        <div class="tool-body">
-          <strong>Q1：</strong>这件事，您能直接决定吗？<br>
-          <strong>Q2：</strong>上次类似合作，是哪位在主导？<br>
-          <strong>Q3：</strong>如果他不在，这事还能推进吗？<br><br>
-          <strong style="color:var(--accent-dark)">→ 三问答案指向同一个人 = 他就是KP</strong>
-        </div>
-      </div>
-      <div class="tool-card">
-        <div class="tool-title">工具2 · 拜访前20分钟情报清单</div>
-        <div class="tool-body">
-          □ 企查查：法人/股东/实际控制人<br>
-          □ 官网：高管名单/近期动态<br>
-          □ 招聘网站：谁在招人 = 谁管这块（重点）<br>
-          □ 社交媒体：老板账号/近期关注点<br>
-          □ 问同行：这家公司采购谁说了算<br>
-          □ 行业群：KP有没有在群里发过言
-        </div>
-      </div>
-      <div class="tool-card">
-        <div class="tool-title">工具3 · 前台建关系三招</div>
-        <div class="tool-body">
-          <strong>招1：</strong>记名字，用名字称呼<br>
-          <strong>招2：</strong>带小礼物（奶茶/零食）+ 节日问候<br>
-          <strong>招3：</strong>真诚夸赞前台工作<br><br>
-          <strong style="color:var(--accent-dark)">→ 3招之后，前台变盟友</strong>
-        </div>
-      </div>
-      <div class="tool-card">
-        <div class="tool-title">工具4 · 从非KP爬到KP的话术（三版）</div>
-        <div class="tool-body">
-          <strong>A版（直接）：</strong><br>"您这边能直接推进，还是需要哪位领导点头？"<br><br>
-          <strong>B版（中间）：</strong><br>"后续推进时，我还需要跟哪位老师同步一下？"<br><br>
-          <strong>C版（最软）：</strong><br>"方便安排和您领导一起汇报一下吗？"
-        </div>
-      </div>
-      <div class="tool-card">
-        <div class="tool-title">工具5 · 假KP破局话术</div>
-        <div class="tool-body">
-          "王经理，我想直接确认一下——<br>
-          这种合作，您这边是可以直接推进的，<br>
-          还是还需要哪位领导最终点头？"
-        </div>
-      </div>
-      <div class="tool-card">
-        <div class="tool-title">工具6 · 四类客户分层卡</div>
-        <div class="tool-body">
-          <strong style="color:var(--success)">A类</strong>（高价值+高意愿）→ 重点投入，直接找最高KP<br>
-          <strong style="color:var(--warning)">B类</strong>（高价值+低意愿）→ 重点突破，持续渗透<br>
-          <strong style="color:var(--info)">C类</strong>（低价值+高意愿）→ 低成本维护<br>
-          <strong style="color:var(--muted)">D类</strong>（低价值+低意愿）→ 暂不投入
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
 
-<!-- 知识点清单 -->
-<div class="module" id="m-points">
-  <div class="module-header active" onclick="toggle(this)">
-    <h2><span class="module-tag">知识点</span>完整知识点清单（30个微课/卡片）</h2>
-    <span class="toggle">&#9662;</span>
+<!-- ===== 找KP的方法 ===== -->
+<div class="module" id="part-method">
+  <div class="module-header open" onclick="toggle(this)">
+    <div class="module-title">
+      <span class="module-tag green">核心</span>
+      <h2>找KP的4条路</h2>
+    </div>
+    <span class="toggle">▾</span>
   </div>
   <div class="module-body open">
 
-    <h4 style="margin-top:0;padding:8px 12px;background:#f3f4f6;border-radius:6px;font-size:14px">&#128161; 课前认知导入</h4>
-    <table class="kp-table">
-      <thead><tr><th style="width:40px">#</th><th style="width:140px">知识点</th><th style="width:70px">类型</th><th>一句话说清楚</th></tr></thead>
-      <tbody>
-        <tr><td>30</td><td>找到决策者心法</td><td><span class="kp-tag tag-mind">认知</span></td><td>1/4有主见的人才说了算，找那个主动开口的人</td></tr>
-      </tbody>
-    </table>
+    <div class="lead">
+      <strong>记忆口诀：上门探、查信息、找人带、先给值</strong><br>
+      四条路不是非此即彼，可以同时用、配合用。
+    </div>
 
-    <h4 style="margin-top:18px;padding:8px 12px;background:#f3f4f6;border-radius:6px;font-size:14px">&#128204; MODULE 1 · KP认知</h4>
-    <table class="kp-table">
-      <thead><tr><th style="width:40px">#</th><th style="width:140px">知识点</th><th style="width:70px">类型</th><th>一句话说清楚</th></tr></thead>
-      <tbody>
-        <tr><td>1</td><td>KP定义</td><td><span class="kp-tag tag-mind">认知</span></td><td>说行就行、说不行就不行的人</td></tr>
-        <tr><td>2</td><td>KP三类角色</td><td><span class="kp-tag tag-core">核心</span></td><td>拍板人/签字人/影响人，三类分别对应</td></tr>
-        <tr><td>3</td><td>假KP三信号</td><td><span class="kp-tag tag-case">避坑</span></td><td>"帮你协调"/永远汇报/方案无进展</td></tr>
-        <tr><td>4</td><td>KP动态更新</td><td><span class="kp-tag tag-mind">认知</span></td><td>项目阶段变了，KP可能换人，要重新确认</td></tr>
-        <tr><td>5</td><td>三问定KP</td><td><span class="kp-tag tag-tool">工具</span></td><td>三个问题锁定真正决策者</td></tr>
-      </tbody>
-    </table>
+    <div class="road-grid">
 
-    <h4 style="margin-top:18px;padding:8px 12px;background:#f3f4f6;border-radius:6px;font-size:14px">&#9733; MODULE 2 · 5条路</h4>
+      <!-- 路1：直接上门 -->
+      <div class="road-card" id="road-1">
+        <div class="road-head road-head-c1">
+          <div class="road-badge">1</div>
+          <div class="road-info">
+            <div class="road-name">直接上门拜访</div>
+            <div class="road-tagline">最基础、最直接，适合所有类型门店</div>
+          </div>
+          <div class="road-labels">
+            <span class="road-label">成本低</span>
+            <span class="road-label">全场景适用</span>
+          </div>
+        </div>
+        <div class="road-meta">
+          <div class="road-meta-item">
+            <div class="road-meta-label">成功率</div>
+            <div class="road-meta-val">中等</div>
+          </div>
+          <div class="road-meta-item">
+            <div class="road-meta-label">适合时机</div>
+            <div class="road-meta-val">任何时候</div>
+          </div>
+          <div class="road-meta-item">
+            <div class="road-meta-label">关键动作</div>
+            <div class="road-meta-val">和一线员工建关系</div>
+          </div>
+        </div>
+        <div class="road-body">
+          <h4>核心逻辑</h4>
+          <p style="font-size:14px">直接走进酒店，第一个遇到的人（前台/保安/收银员）往往不是KP，但他们是<strong>通往KP的桥梁</strong>。关键：把眼前这个人当成你此刻最重要的人，真诚对待，他才愿意帮你。</p>
 
-    <p style="font-size:13px;color:var(--muted);margin:8px 0 4px"><strong>路0 · 分层</strong></p>
-    <table class="kp-table">
-      <tbody>
-        <tr><td style="width:40px">6</td><td style="width:140px">四类客户分层</td><td style="width:70px"><span class="kp-tag tag-tool">工具</span></td><td>先分层再决定投多少精力找KP</td></tr>
-      </tbody>
-    </table>
+          <div class="road-steps">
+            <div class="road-step">
+              <div class="road-step-num">1</div>
+              <div class="road-step-text">进门建立基础信任</div>
+            </div>
+            <div class="road-step">
+              <div class="road-step-num">2</div>
+              <div class="road-step-text">确认KP是谁</div>
+            </div>
+            <div class="road-step">
+              <div class="road-step-num">3</div>
+              <div class="road-step-text">请求帮忙引荐</div>
+            </div>
+            <div class="road-step">
+              <div class="road-step-num">4</div>
+              <div class="road-step-text">确认对方愿意帮</div>
+            </div>
+            <div class="road-step">
+              <div class="road-step-num">5</div>
+              <div class="road-step-text">约到见面时间</div>
+            </div>
+          </div>
 
-    <p style="font-size:13px;color:var(--muted);margin:12px 0 4px"><strong>路1 · 问小人物</strong></p>
-    <table class="kp-table">
-      <tbody>
-        <tr><td style="width:40px">7</td><td style="width:140px">前台三招建关系</td><td style="width:70px"><span class="kp-tag tag-skill">技巧</span></td><td>记名字/带礼物/夸赞，把前台变盟友</td></tr>
-        <tr><td>8</td><td>前台套信息话术</td><td><span class="kp-tag tag-tool">工具</span></td><td>自然问出KP的时间/性格/近期状态</td></tr>
-        <tr><td>9</td><td>让前台通报你</td><td><span class="kp-tag tag-skill">技巧</span></td><td>让前台在KP面前说你是"靠谱的好人"</td></tr>
-      </tbody>
-    </table>
+          <h4>引荐话术逻辑（和一线员工的对话）</h4>
+          <div class="dialogue">
+            先聊几句，建立好感，让对方感到被尊重。然后：<br><br>
+            "×姐/×哥，我有个事情想请你帮个忙，对我来说挺重要的。能不能帮我引荐一下你们的老板/总经理？因为……（说明理由：我们有个对他们有利的合作方向，我觉得值得当面聊聊）"<br><br>
+            如果对方犹豫：<br>
+            "你觉得直接引荐会有什么顾虑吗？帮我说说，我们一起想想怎么解决。"<br><br>
+            得到确认后：<br>
+            "太好了，你看是现在方便，还是我约个时间过来比较好？"
+          </div>
 
-    <p style="font-size:13px;color:var(--muted);margin:12px 0 4px"><strong>路2 · 扒信息</strong></p>
-    <table class="kp-table">
-      <tbody>
-        <tr><td style="width:40px">10</td><td style="width:140px">拜访前20分钟情报清单</td><td style="width:70px"><span class="kp-tag tag-tool">工具</span></td><td>企查查+招聘+社交+同行，20分钟搞定</td></tr>
-        <tr><td>11</td><td>招聘信息解读法</td><td><span class="kp-tag tag-skill">技巧</span></td><td>谁发招聘需求=谁管这块，锁定KP</td></tr>
-        <tr><td>12</td><td>拿到老板直线电话</td><td><span class="kp-tag tag-skill">技巧</span></td><td>通过前台/员工/活动名单三路并进</td></tr>
-      </tbody>
-    </table>
+          <div class="alert info">
+            <span class="alert-icon">💡</span>
+            <div><strong>关键心法：</strong>眼前的一线员工，就是你当下唯一的KP。只有他真心愿意帮你，才能帮你找到真正的KP。</div>
+          </div>
 
-    <p style="font-size:13px;color:var(--muted);margin:12px 0 4px"><strong>路3 · 顺藤摸瓜</strong></p>
-    <table class="kp-table">
-      <tbody>
-        <tr><td style="width:40px">13</td><td style="width:140px">顺藤摸瓜A/B/C话术</td><td style="width:70px"><span class="kp-tag tag-tool">工具</span></td><td>三版话术按关系深浅选，让非KP引荐你</td></tr>
-      </tbody>
-    </table>
+          <h4>进门后如何确认对方是不是KP</h4>
+          <div class="dialogue ok">
+            见面时直接问：<br>
+            "关于和我们的合作，最终的决定是您来确认吗？"<br>
+            或：<br>
+            "您是这个店的总经理/店长吗？"
+          </div>
+        </div>
+      </div>
 
-    <p style="font-size:13px;color:var(--muted);margin:12px 0 4px"><strong>路4 · 隐藏身份</strong></p>
-    <table class="kp-table">
-      <tbody>
-        <tr><td style="width:40px">14</td><td style="width:140px">顾客身份体验法</td><td style="width:70px"><span class="kp-tag tag-skill">技巧</span></td><td>先以顾客身份接触，体验后亮明身份</td></tr>
-        <tr><td>15</td><td>行业人身份渗透法</td><td><span class="kp-tag tag-skill">技巧</span></td><td>进圈子输出价值，等KP主动来问你</td></tr>
-        <tr><td>16</td><td>一直盯着法</td><td><span class="kp-tag tag-skill">技巧</span></td><td>在KP必经场合持续出现，制造熟悉感</td></tr>
-        <tr><td>17</td><td>社交渗透法</td><td><span class="kp-tag tag-skill">技巧</span></td><td>朋友圈/群里先建印象，再亮明身份</td></tr>
-        <tr><td>18</td><td>亮明身份最佳时机</td><td><span class="kp-tag tag-skill">技巧</span></td><td>KP主动问/非正式场合放松时/2-3次交流后</td></tr>
-      </tbody>
-    </table>
+      <!-- 路2：公开信息渠道 -->
+      <div class="road-card" id="road-2">
+        <div class="road-head road-head-c2">
+          <div class="road-badge">2</div>
+          <div class="road-info">
+            <div class="road-name">公开信息渠道查询</div>
+            <div class="road-tagline">拜访前做功课，带着信息去，效率更高</div>
+          </div>
+          <div class="road-labels">
+            <span class="road-label">拜访前准备</span>
+            <span class="road-label">信息充分</span>
+          </div>
+        </div>
+        <div class="road-meta">
+          <div class="road-meta-item">
+            <div class="road-meta-label">成功率</div>
+            <div class="road-meta-val">取决于准备质量</div>
+          </div>
+          <div class="road-meta-item">
+            <div class="road-meta-label">适合时机</div>
+            <div class="road-meta-val">拜访前必做</div>
+          </div>
+          <div class="road-meta-item">
+            <div class="road-meta-label">核心工具</div>
+            <div class="road-meta-val">企查查 + 招聘 + 社媒</div>
+          </div>
+        </div>
+        <div class="road-body">
+          <h4>可用渠道清单</h4>
+          <table>
+            <thead>
+              <tr><th>渠道</th><th>能查到什么</th><th>怎么用</th></tr>
+            </thead>
+            <tbody>
+              <tr><td><strong>企查查 / 天眼查</strong></td><td>法人姓名、股东信息、注册地址</td><td>查单体酒店老板姓名</td></tr>
+              <tr><td><strong>招聘网站</strong>（Boss直聘/猎聘）</td><td>在招职位、联系人姓名、组织架构</td><td>看"招聘联系人"往往就是管理层</td></tr>
+              <tr><td><strong>OTA平台</strong>（飞猪/美团/携程）</td><td>酒店联系人、回复人昵称</td><td>评论回复人名字有时就是老板</td></tr>
+              <tr><td><strong>微信/抖音/小红书</strong></td><td>酒店官号、老板个人号、发帖内容</td><td>搜酒店名+地址，找到老板号</td></tr>
+              <tr><td><strong>行业群/本地群</strong></td><td>老板名片、互动记录</td><td>加群后搜"酒店/民宿"关键词</td></tr>
+            </tbody>
+          </table>
 
-    <p style="font-size:13px;color:var(--muted);margin:12px 0 4px"><strong>路5 · 从下往上渗透</strong></p>
-    <table class="kp-table">
-      <tbody>
-        <tr><td style="width:40px">19</td><td style="width:140px">从下往上渗透法</td><td style="width:70px"><span class="kp-tag tag-skill">技巧</span></td><td>搞定一线员工→形成内部口碑→KP主动了解你</td></tr>
-      </tbody>
-    </table>
+          <div class="dialogue case">
+            我在Boss直聘上看到这家酒店在招前台，招聘方联系人叫"王总"，简介里写着"连锁酒店创始人"。直接加微信，打招呼说："王总您好，在招聘网站看到您，我是飞猪BD小李，想和您聊聊……"
+          </div>
 
-    <h4 style="margin-top:18px;padding:8px 12px;background:#f3f4f6;border-radius:6px;font-size:14px">&#9888; MODULE 3 · 避坑</h4>
-    <table class="kp-table">
-      <tbody>
-        <tr><td style="width:40px">20</td><td style="width:140px">破假KP话术</td><td style="width:70px"><span class="kp-tag tag-tool">工具</span></td><td>直接问"您这边能直接推进吗"</td></tr>
-      </tbody>
-    </table>
+          <div class="alert warn">
+            <span class="alert-icon">⚠</span>
+            <div>查到名字之后，<strong>不要在第一句话就暴露你知道对方所有信息</strong>（会让对方觉得被盯梢）。先自然引入，再提信息。</div>
+          </div>
+        </div>
+      </div>
 
-    <h4 style="margin-top:18px;padding:8px 12px;background:#f3f4f6;border-radius:6px;font-size:14px">&#11088; MODULE 4 · Top Sales实战</h4>
-    <table class="kp-table">
-      <tbody>
-        <tr><td style="width:40px">21</td><td style="width:140px">拜访量基础原则</td><td style="width:70px"><span class="kp-tag tag-mind">认知</span></td><td>量是质的前提，每天固定拜访量不达标不收工</td></tr>
-        <tr><td>22</td><td>第一通电话不谈合作</td><td><span class="kp-tag tag-skill">技巧</span></td><td>只说"想来拜访请教"，降低防备提高见面率</td></tr>
-        <tr><td>23</td><td>拜访必带数据</td><td><span class="kp-tag tag-skill">技巧</span></td><td>带行业数据/竞对分析，让KP觉得你比他了解他的业务</td></tr>
-        <tr><td>24</td><td>拜访后必复盘</td><td><span class="kp-tag tag-tool">工具</span></td><td>记录KP状态/关键信息/下次切入点</td></tr>
-        <tr><td>25</td><td>合作性思维</td><td><span class="kp-tag tag-mind">认知</span></td><td>不是"我要卖东西"，是"我们一起解决你的问题"</td></tr>
-        <tr><td>26</td><td>给予者视角</td><td><span class="kp-tag tag-mind">认知</span></td><td>先问"我能帮KP什么"，不是"我要拿什么"</td></tr>
-        <tr><td>27</td><td>建立专家形象</td><td><span class="kp-tag tag-skill">技巧</span></td><td>让KP觉得"你是这个区域最懂行的人"</td></tr>
-        <tr><td>28</td><td>建立客户档案</td><td><span class="kp-tag tag-tool">工具</span></td><td>记录每个KP的性格/喜好/关注点/近期压力</td></tr>
-        <tr><td>29</td><td>节点营销法</td><td><span class="kp-tag tag-skill">技巧</span></td><td>KP生日/公司周年/行业大事件时主动出现</td></tr>
-      </tbody>
-    </table>
+      <!-- 路3：引荐 -->
+      <div class="road-card" id="road-3">
+        <div class="road-head road-head-c3">
+          <div class="road-badge">3</div>
+          <div class="road-info">
+            <div class="road-name">同行 / 酒店引荐</div>
+            <div class="road-tagline">效率最高、转化率最高的一条路</div>
+          </div>
+          <div class="road-labels">
+            <span class="road-label">转化率最高</span>
+            <span class="road-label">需要前置积累</span>
+          </div>
+        </div>
+        <div class="road-meta">
+          <div class="road-meta-item">
+            <div class="road-meta-label">成功率</div>
+            <div class="road-meta-val">⭐⭐⭐⭐⭐</div>
+          </div>
+          <div class="road-meta-item">
+            <div class="road-meta-label">适合时机</div>
+            <div class="road-meta-val">已有合作酒店后</div>
+          </div>
+          <div class="road-meta-item">
+            <div class="road-meta-label">核心动作</div>
+            <div class="road-meta-val">走的时候开口要</div>
+          </div>
+        </div>
+        <div class="road-body">
+          <p style="font-size:14px">引荐分两类，一起用，效率翻倍：</p>
+
+          <h4>① 让已合作的酒店老板帮你引荐周边酒店</h4>
+          <p style="font-size:13px;color:var(--muted)">这是目前<strong>转化率最高</strong>的方法。带着"张三介绍的"五个字去见陌生酒店老板，成功率远超陌生拜访。</p>
+          <div class="road-steps">
+            <div class="road-step">
+              <div class="road-step-num">1</div>
+              <div class="road-step-text">和酒店老板聊得不错</div>
+            </div>
+            <div class="road-step">
+              <div class="road-step-num">2</div>
+              <div class="road-step-text">临走时开口请求引荐</div>
+            </div>
+            <div class="road-step">
+              <div class="road-step-num">3</div>
+              <div class="road-step-text">拿到隔壁老板联系方式</div>
+            </div>
+            <div class="road-step">
+              <div class="road-step-num">4</div>
+              <div class="road-step-text">用"×老板介绍的"开场</div>
+            </div>
+          </div>
+          <div class="dialogue">
+            （快离开时）"×老板，和您聊得很愉快！您在这个商圈认识不少同行吧？我在做这片区域，您看有没有方便帮我引荐几家聊聊？您放心，我不会给您添麻烦的。"
+          </div>
+
+          <h4>② 让友商BD互通信息 / 介绍资源</h4>
+          <p style="font-size:13px;color:var(--muted)">问同行BD（美团/携程/OTA同业BD），互换名片资源，知道这个商圈里谁是关键KP。</p>
+          <div class="dialogue">
+            "×哥，你们也在跑这片区域？我们BD互相认识一下，有些商圈资源可以互通有无。你知道××酒店的老板是谁吗？"
+          </div>
+
+          <div class="alert success">
+            <span class="alert-icon">💡</span>
+            <div><strong>核心心法：</strong>一家酒店谈成后，<strong>走之前必开口</strong>要引荐。这个动作大多数BD都没做，但效果是最好的。</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 路4：先价值后身份 -->
+      <div class="road-card" id="road-4">
+        <div class="road-head road-head-c4">
+          <div class="road-badge">4</div>
+          <div class="road-info">
+            <div class="road-name">先提供价值，再亮明身份</div>
+            <div class="road-tagline">适合难以直接切入的场景</div>
+          </div>
+          <div class="road-labels">
+            <span class="road-label">进阶技巧</span>
+            <span class="road-label">需要耐心</span>
+          </div>
+        </div>
+        <div class="road-meta">
+          <div class="road-meta-item">
+            <div class="road-meta-label">成功率</div>
+            <div class="road-meta-val">中高</div>
+          </div>
+          <div class="road-meta-item">
+            <div class="road-meta-label">适合时机</div>
+            <div class="road-meta-val">对方警惕性高时</div>
+          </div>
+          <div class="road-meta-item">
+            <div class="road-meta-label">核心逻辑</div>
+            <div class="road-meta-val">先让对方感受到价值</div>
+          </div>
+        </div>
+        <div class="road-body">
+          <h4>核心逻辑</h4>
+          <p style="font-size:14px">不是"隐瞒身份"，而是<strong>先以行业交流者、资源提供者的角色建立连接</strong>，给对方提供有用的信息/视角/资源，让他主动想了解你是谁，再自然地说明你是BD。</p>
+
+          <div class="road-steps">
+            <div class="road-step">
+              <div class="road-step-num">1</div>
+              <div class="road-step-text">以行业交流切入</div>
+            </div>
+            <div class="road-step">
+              <div class="road-step-num">2</div>
+              <div class="road-step-text">先给有用信息/数据</div>
+            </div>
+            <div class="road-step">
+              <div class="road-step-num">3</div>
+              <div class="road-step-text">对方产生兴趣/信任</div>
+            </div>
+            <div class="road-step">
+              <div class="road-step-num">4</div>
+              <div class="road-step-text">自然亮明BD身份</div>
+            </div>
+            <div class="road-step">
+              <div class="road-step-num">5</div>
+              <div class="road-step-text">推进到正式合作谈</div>
+            </div>
+          </div>
+
+          <div class="dialogue">
+            "×老板您好，我最近在做这个片区的住宿市场调研，看了您酒店在OTA上的数据，发现了一些可能对您有参考价值的东西，方便聊几分钟吗？"<br><br>
+            （给出1-2个真实的、有用的数据/行业信息之后）<br><br>
+            "对了，我介绍一下我自己，我是飞猪的BD小李，之所以关注您这边，是因为我们最近有一些适合您规模的合作方案……"
+          </div>
+
+          <div class="alert warn">
+            <span class="alert-icon">⚠</span>
+            <div><strong>注意：</strong>这条路的核心是"先给价值"，不是"撒谎说自己是别的身份"。一旦撒谎（比如说自己是旅行社），对方发现后信任直接归零，后续全部白费。</div>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /road-grid -->
+
   </div>
 </div>
 
-<!-- 来源 -->
-<div class="module" id="m-source">
-  <div class="module-header" onclick="toggle(this)">
-    <h2><span class="module-tag">来源</span>整合来源确认</h2>
-    <span class="toggle">&#9662;</span>
+
+<!-- ===== Stop Doing List ===== -->
+<div class="module" id="part-stop">
+  <div class="module-header open" onclick="toggle(this)">
+    <div class="module-title">
+      <span class="module-tag red">必看</span>
+      <h2>Stop Doing List · 这些事绝对不能干</h2>
+    </div>
+    <span class="toggle">▾</span>
   </div>
-  <div class="module-body">
-    <div class="tool-grid">
-      <div class="tool-card" style="border-color:#ddd">
-        <div class="tool-title" style="color:var(--text)">第39期业务技能共创大表</div>
-        <div class="tool-body">三层障碍/四场景/找到决策者心法/课前认知导入</div>
+  <div class="module-body open">
+
+    <div class="alert danger">
+      <span class="alert-icon">🚫</span>
+      <div>以下行为不只是"效果不好"，部分涉及<strong>风控红线和合规问题</strong>，一旦出现可能影响账号、影响数据，甚至上升至法务。</div>
+    </div>
+
+    <div class="stop-grid">
+
+      <div class="stop-card">
+        <div class="stop-card-head">🚫 风控 / 合规红线</div>
+        <div class="stop-card-body">
+          <ul>
+            <li>用虚假身份或假公司名义签约</li>
+            <li>承诺平台无法兑现的数据/排名/返佣</li>
+            <li>私下截流平台订单或截佣</li>
+            <li>帮商家操作虚假评论、刷单</li>
+            <li>透露其他商家的商业数据或价格信息</li>
+            <li>在未授权的情况下使用平台名义做承诺</li>
+          </ul>
+        </div>
       </div>
-      <div class="tool-card" style="border-color:#ddd">
-        <div class="tool-title" style="color:var(--text)">如何寻找KP-前台对接</div>
-        <div class="tool-body">完整3步流程+话术+避坑原则</div>
+
+      <div class="stop-card">
+        <div class="stop-card-head">🚫 坑蒙拐骗类（建立在谎言上的关系走不远）</div>
+        <div class="stop-card-body">
+          <ul>
+            <li>谎称自己是"旅行社/渠道商"去套信息</li>
+            <li>用"体验入住"名义混进去探情报，然后直接暴露</li>
+            <li>夸大平台流量、效果、GMV数据</li>
+            <li>对商家说"签了马上就有单"（无法保证的事不承诺）</li>
+            <li>用其他商家的隐私信息作为谈判筹码</li>
+          </ul>
+        </div>
       </div>
-      <div class="tool-card" style="border-color:#ddd">
-        <div class="tool-title" style="color:var(--text)">如何寻找KP-隐藏身份</div>
-        <div class="tool-body">4种方法+亮身份时机判断</div>
+
+      <div class="stop-card">
+        <div class="stop-card-head">⚠ 容易踩的坑（认知陷阱）</div>
+        <div class="stop-card-body">
+          <ul>
+            <li><strong>把非KP当KP一直跟进</strong>——跟前台谈了3次，老板从来没出现过</li>
+            <li><strong>把"热情"当"有决策权"</strong>——对方很积极但他做不了主</li>
+            <li><strong>没有确认对方身份就开始讲方案</strong>——讲了半小时，对方是实习生</li>
+            <li><strong>认为"见到人=谈成了"</strong>——见到KP只是开始，不是终点</li>
+          </ul>
+        </div>
       </div>
-      <div class="tool-card" style="border-color:#ddd">
-        <div class="tool-title" style="color:var(--text)">Top Sales Case</div>
-        <div class="tool-body">案例一完整打法+核心能力三角</div>
+
+      <div class="stop-card">
+        <div class="stop-card-head">⚠ 低效行为（浪费时间）</div>
+        <div class="stop-card-body">
+          <ul>
+            <li>没做任何准备就冷拜访，不知道对方是谁</li>
+            <li>谈完一家，走的时候没有要引荐（最高效的路没走）</li>
+            <li>对方说"我考虑考虑"，就等着——没有下一步约定</li>
+            <li>只发消息不打电话，只打电话不约见面</li>
+            <li>在不合适的时间去谈（午休、旺季入住高峰）</li>
+          </ul>
+        </div>
       </div>
-      <div class="tool-card" style="border-color:#ddd">
-        <div class="tool-title" style="color:var(--text)">特金攻坚-真照</div>
-        <div class="tool-body">从下往上渗透完整打法+拜访复盘</div>
+
+    </div>
+
+    <h3><span class="icon">✓</span>对应的正确做法</h3>
+    <div class="do-grid">
+      <div class="do-card">
+        <div class="do-card-head">✅ 关系建立要做的事</div>
+        <div class="do-card-body">
+          <ul>
+            <li>始终用真实身份、真实信息建立信任</li>
+            <li>承诺之前先确认平台能否支持</li>
+            <li>每次见面，离开前明确下一步动作</li>
+            <li>把眼前每一个人都当成重要的人对待</li>
+          </ul>
+        </div>
       </div>
-      <div class="tool-card" style="border-color:#ddd">
-        <div class="tool-title" style="color:var(--text)">丸司Top Sales</div>
-        <div class="tool-body">四类客户分层+客户档案+节点营销</div>
+      <div class="do-card">
+        <div class="do-card-head">✅ 识别KP要做的事</div>
+        <div class="do-card-body">
+          <ul>
+            <li>第一次见面就直接确认对方是否有决策权</li>
+            <li>发现不是KP，立刻问如何联系到KP</li>
+            <li>记录好每家酒店的KP信息（姓名/职位/联系方式）</li>
+            <li>谈完一家酒店，走之前开口要引荐</li>
+          </ul>
+        </div>
       </div>
     </div>
-    <div class="lead" style="margin-top:16px">
-      <strong>方法论体系：</strong>客情5阶段关系演进模型 / BD培训体系逻辑链路 / MTP隐喻式课程设计方法论 / BD课程内容表达规范 / 活动卡片三行结构规范
+
+  </div>
+</div>
+
+
+<!-- ===== 关系进阶预告 ===== -->
+<div class="module" id="part-next">
+  <div class="module-header open" onclick="toggle(this)">
+    <div class="module-title">
+      <span class="module-tag yellow">预告</span>
+      <h2>关系进阶：找到KP之后怎么办</h2>
     </div>
+    <span class="toggle">▾</span>
+  </div>
+  <div class="module-body open">
+
+    <div class="lead">
+      找到并约到KP，只是第一步。约到之后的<strong>开口、说服、处理拒绝、跟进、上架</strong>，是后续4门课的内容。这里只做简单预告。
+    </div>
+
+    <h3><span class="icon">→</span>约到KP后的5个动作</h3>
+    <div class="ladder">
+      <div class="ladder-step">
+        <div class="ladder-dot">1</div>
+        <div class="ladder-content">
+          <div class="ladder-title">破冰 + 确认KP身份</div>
+          <div class="ladder-desc">建立初步信任，确认对方有最终决策权，让对方有兴趣继续聊</div>
+          <span class="ladder-tag">本课覆盖</span>
+        </div>
+      </div>
+      <div class="ladder-step">
+        <div class="ladder-dot">2</div>
+        <div class="ladder-content">
+          <div class="ladder-title">3分钟讲清合作价值</div>
+          <div class="ladder-desc">用KP听得懂的语言讲"对你有什么好处"，而不是介绍产品功能</div>
+          <span class="ladder-tag">第2课</span>
+        </div>
+      </div>
+      <div class="ladder-step">
+        <div class="ladder-dot">3</div>
+        <div class="ladder-content">
+          <div class="ladder-title">处理常见拒绝</div>
+          <div class="ladder-desc">"我们已经有美团了"、"现在没空"、"你们效果怎么样"——逐一破解</div>
+          <span class="ladder-tag">第3课</span>
+        </div>
+      </div>
+      <div class="ladder-step">
+        <div class="ladder-dot">4</div>
+        <div class="ladder-content">
+          <div class="ladder-title">跟进不掉单</div>
+          <div class="ladder-desc">每次拜访后明确下一步，设置跟进节奏，不让单子冷掉</div>
+          <span class="ladder-tag">第4课</span>
+        </div>
+      </div>
+      <div class="ladder-step">
+        <div class="ladder-dot">5</div>
+        <div class="ladder-content">
+          <div class="ladder-title">签完上架 + 快速起量</div>
+          <div class="ladder-desc">签约后帮商家快速上架、出单，让他看到效果，为续签和引荐打基础</div>
+          <span class="ladder-tag">第5课</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="alert info">
+      <span class="alert-icon">📌</span>
+      <div>
+        <strong>一句话总结本课：</strong><br>
+        找KP = 上门探 + 查信息 + 找人带 + 先给值。<br>
+        约到之后，记住三件事：<strong>① 确认他有决策权 ② 让他感受到价值 ③ 约定下一步动作</strong>。
+      </div>
+    </div>
+
   </div>
 </div>
 
 </main>
-</div>
+</div><!-- /container -->
 
 <script>
-// 模块折叠
-function toggle(header){
-  header.classList.toggle('active');
-  const body=header.nextElementSibling;
+function toggle(header) {
+  header.classList.toggle('open');
+  const body = header.nextElementSibling;
   body.classList.toggle('open');
 }
 
 // 导航高亮
-const navItems=document.querySelectorAll('.nav-item');
-navItems.forEach(item=>{
-  item.addEventListener('click',function(){
-    navItems.forEach(n=>n.classList.remove('active'));
-    this.classList.add('active');
+const navItems = document.querySelectorAll('.nav-item');
+const sections = document.querySelectorAll('.module');
+
+function updateNav() {
+  let current = '';
+  sections.forEach(s => {
+    const top = s.getBoundingClientRect().top;
+    if (top < 120) current = s.id;
   });
-});
-
-// 总览卡片点击跳转
-function scrollToId(id){
-  const el=document.getElementById(id);
-  if(el){
-    const header=el.querySelector('.module-header');
-    const body=el.querySelector('.module-body');
-    if(!body.classList.contains('open')){
-      header.classList.add('active');
-      body.classList.add('open');
-    }
-    el.scrollIntoView({behavior:'smooth',block:'start'});
-  }
-}
-
-// 知识点搜索
-function filterKp(){
-  const val=document.getElementById('kpSearch').value.toLowerCase();
-  const rows=document.querySelectorAll('#kpTable tbody tr');
-  rows.forEach(row=>{
-    const text=row.textContent.toLowerCase();
-    row.style.display=text.includes(val)?'':'none';
+  navItems.forEach(item => {
+    const href = item.getAttribute('href');
+    item.classList.toggle('active', href === '#' + current);
   });
 }
+window.addEventListener('scroll', updateNav);
 
-// 平滑滚动
-document.querySelectorAll('.nav-item').forEach(a=>{
-  a.addEventListener('click',function(e){
-    e.preventDefault();
-    const id=this.getAttribute('href').slice(1);
-    const el=document.getElementById(id);
-    if(el){
-      const header=el.querySelector('.module-header');
-      const body=el.querySelector('.module-body');
-      if(!body.classList.contains('open')){
-        header.classList.add('active');
-        body.classList.add('open');
-      }
-      el.scrollIntoView({behavior:'smooth',block:'start'});
+// 锚点平滑跳转
+navItems.forEach(item => {
+  item.addEventListener('click', e => {
+    const href = item.getAttribute('href');
+    if (href && href.startsWith('#')) {
+      e.preventDefault();
+      const target = document.querySelector(href);
+      if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
   });
 });
