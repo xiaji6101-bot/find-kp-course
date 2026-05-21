@@ -177,6 +177,56 @@ tr:hover td{background:#fafafa}
 .kb{background:#f8f9ff;border:1px solid #c7d2fe;border-radius:var(--rsm);padding:14px 16px;margin:12px 0;font-size:13px;line-height:1.8}
 .kb-title{font-weight:700;color:var(--accent-d);margin-bottom:8px;font-size:14px}
 
+/* ROAD COMPARE */
+.road-compare{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:16px 0}
+.rc-card{border-radius:var(--rsm);overflow:hidden;border:2px solid var(--border);transition:.2s;cursor:default}
+.rc-card:hover{transform:translateY(-2px);box-shadow:0 6px 18px rgba(0,0,0,.1)}
+.rc-top{padding:10px 12px;color:#fff;display:flex;align-items:center;gap:8px}
+.rc-badge{width:28px;height:28px;border-radius:50%;background:rgba(255,255,255,.25);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:800;flex-shrink:0}
+.rc-name{font-size:13px;font-weight:700}
+.rc-body{padding:9px 12px;background:var(--card)}
+.rc-when{font-size:11px;color:var(--muted);margin-bottom:4px}
+.rc-scene{font-size:12px;line-height:1.5;font-weight:500}
+
+/* SCENE BADGE */
+.scene-badge{display:inline-block;font-size:10px;font-weight:700;padding:2px 9px;border-radius:10px;background:#dbeafe;color:#1e40af;margin-bottom:5px;letter-spacing:.3px}
+
+/* MINI FLOW */
+.mini-flow{display:flex;flex-wrap:wrap;align-items:center;gap:4px;margin:7px 0;padding:8px 10px;background:#f8fafc;border-radius:6px;border:1px solid #e2e8f0}
+.mf-s{font-size:11px;font-weight:600;padding:3px 8px;background:#fff;border:1px solid #cbd5e1;border-radius:4px;white-space:nowrap;color:#334155}
+.mf-arr{font-size:12px;color:#6366f1;font-weight:700;padding:0 2px}
+
+/* CHECKLIST */
+.checklist{margin:10px 0;display:flex;flex-direction:column;gap:6px}
+.cl-item{display:flex;align-items:flex-start;gap:9px;padding:8px 12px;background:#f0fdf4;border:1px solid #bbf7d0;border-radius:6px;font-size:13px}
+.cl-icon{width:18px;height:18px;border-radius:4px;background:#16a34a;color:#fff;display:flex;align-items:center;justify-content:center;font-size:10px;flex-shrink:0;margin-top:1px}
+.cl-key{font-weight:700;color:#15803d;margin-right:4px}
+.cl-desc{color:#374151}
+
+/* REF PATH */
+.ref-paths{display:flex;flex-direction:column;gap:0;margin:12px 0}
+.ref-path{display:flex;gap:0;position:relative}
+.ref-path:not(:last-child)::after{content:'';position:absolute;left:19px;top:44px;bottom:-8px;width:2px;background:linear-gradient(#16a34a,#bbf7d0)}
+.rp-num{width:38px;flex-shrink:0;display:flex;flex-direction:column;align-items:center;padding-top:4px}
+.rp-circle{width:38px;height:38px;border-radius:50%;background:linear-gradient(135deg,#16a34a,#059669);color:#fff;font-size:16px;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0;box-shadow:0 3px 8px rgba(22,163,74,.3)}
+.rp-body{flex:1;margin-left:14px;margin-bottom:20px}
+.rp-title-row{display:flex;align-items:center;gap:8px;margin-bottom:6px}
+.rp-title{font-size:13px;font-weight:700;color:#15803d}
+.rp-badge{font-size:10px;padding:1px 8px;border-radius:10px;background:#dcfce7;color:#15803d;font-weight:600}
+.rp-badge.hot{background:#fee2e2;color:#991b1b}
+
+/* VHOOK GRID */
+.vhook-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:12px 0}
+.vh-card{border-radius:var(--rsm);border:1px solid var(--border);overflow:hidden;background:var(--card);transition:.2s}
+.vh-card:hover{border-color:var(--accent);box-shadow:0 4px 12px rgba(99,102,241,.12)}
+.vh-type{padding:8px 12px;font-size:11px;font-weight:700;letter-spacing:.3px;display:flex;align-items:center;gap:6px}
+.vh-type.t1{background:#dbeafe;color:#1e40af}
+.vh-type.t2{background:#fce7f3;color:#9d174d}
+.vh-type.t3{background:#dcfce7;color:#15803d}
+.vh-type.t4{background:#fef3c7;color:#92400e}
+.vh-quote{padding:10px 12px;font-size:12px;line-height:1.7;color:#374151;border-bottom:1px solid var(--border);font-style:italic}
+.vh-tag{display:inline-block;margin:8px 12px;font-size:10px;padding:2px 9px;border-radius:10px;background:var(--accent-l);color:var(--accent-d);font-weight:600}
+
 /* RESP */
 @media(max-width:880px){
   .wrap{flex-direction:column;padding:12px}
@@ -185,11 +235,15 @@ tr:hover td{background:#fafafa}
   .cmap{grid-template-columns:1fr 1fr}
   .ch-grid{grid-template-columns:1fr 1fr}
   .stop-grid{grid-template-columns:1fr}
+  .road-compare{grid-template-columns:1fr 1fr}
+  .vhook-grid{grid-template-columns:1fr 1fr}
 }
 @media(max-width:520px){
   .cmap,.ch-grid{grid-template-columns:1fr}
   .flow{flex-direction:column}
   .flow-arr{transform:rotate(90deg);justify-content:center;padding:4px 0}
+  .road-compare{grid-template-columns:1fr 1fr}
+  .vhook-grid{grid-template-columns:1fr}
 }
 </style>
 </head>
@@ -214,6 +268,8 @@ tr:hover td{background:#fafafa}
   <div class="nav">
     <span class="nav-lbl">课程导航</span>
     <a class="nav-item on" href="#part-overview"><span class="nav-num">总</span>课程总览</a>
+    <hr class="nav-div">
+    <a class="nav-item" href="#part-kp-def"><span class="nav-num">0</span>什么是KP？</a>
     <hr class="nav-div">
     <a class="nav-item" href="#part-method"><span class="nav-num">1</span>找KP的方法</a>
     <a class="nav-item sub" href="#road-1">路1 · 直接上门拜访</a>
@@ -318,6 +374,25 @@ tr:hover td{background:#fafafa}
 
     <div class="lead"><strong>记忆口诀：上门探、查信息、找人带、先给值</strong><br>四条路可以同时用、配合用，不是非此即彼。</div>
 
+    <div class="road-compare">
+      <div class="rc-card">
+        <div class="rc-top c1"><div class="rc-badge">1</div><div class="rc-name">直接上门探</div></div>
+        <div class="rc-body"><div class="rc-when">什么时候用</div><div class="rc-scene">不认识任何人，直接走进酒店</div></div>
+      </div>
+      <div class="rc-card">
+        <div class="rc-top c2"><div class="rc-badge">2</div><div class="rc-name">网上查信息</div></div>
+        <div class="rc-body"><div class="rc-when">什么时候用</div><div class="rc-scene">拜访前做功课，先知道KP是谁</div></div>
+      </div>
+      <div class="rc-card">
+        <div class="rc-top c3"><div class="rc-badge">3</div><div class="rc-name">找人来带路</div></div>
+        <div class="rc-body"><div class="rc-when">什么时候用</div><div class="rc-scene">有合作酒店/同行/PMS资源可借力</div></div>
+      </div>
+      <div class="rc-card">
+        <div class="rc-top c4"><div class="rc-badge">4</div><div class="rc-name">先给值后亮</div></div>
+        <div class="rc-body"><div class="rc-when">什么时候用</div><div class="rc-scene">对方警惕性高，直接介绍BD身份会被拒</div></div>
+      </div>
+    </div>
+
     <div class="road-grid">
 
       <!-- 路1 -->
@@ -349,6 +424,7 @@ tr:hover td{background:#fafafa}
             <div class="istep"><div class="isn">5</div><div class="ist">约好见面时间</div></div>
           </div>
 
+          <span class="scene-badge">场景：第一次进门，还不认识任何人</span>
           <h4>话术① 和前台/一线员工破冰</h4>
           <div class="dlg talk">
             "您好！我是飞猪的BD小李，想拜访一下你们负责人，他在吗？"<br>
@@ -356,6 +432,7 @@ tr:hover td{background:#fafafa}
             "那他一般什么时候比较方便？我改天再来，或者能留个联系方式吗？"
           </div>
 
+          <span class="scene-badge">场景：已聊几句建立基本好感，想让对方帮忙引荐KP</span>
           <h4>话术② 请求一线员工引荐KP（从下往上渗透）</h4>
           <p style="font-size:13px;color:var(--muted)">先搞定一线员工（前台/保安/收银员），与其建立真诚的信任关系，再通过他们引荐到KP。这是成功率极高的现场路径。</p>
           <div class="dlg talk">
@@ -367,6 +444,7 @@ tr:hover td{background:#fafafa}
             "太好了！你看是现在方便，还是我约个具体时间过来比较好？"
           </div>
 
+          <span class="scene-badge">场景：遇到的人不是KP，想顺势找到KP</span>
           <h4>话术③ 顺藤摸瓜：遇到非KP，让他帮你引荐KP</h4>
           <p style="font-size:13px;color:var(--muted)">进了酒店，遇到的人不是KP，不要空手而归——直接请对方帮你牵线，从已有关系网中逐层渗透，找到KP。</p>
           <div class="dlg talk">
@@ -415,7 +493,7 @@ tr:hover td{background:#fafafa}
               </div>
             </div>
             <div class="ch-card">
-              <div class="ch-head orange">方法四：直接问出KP</div>
+              <div class="ch-head orange">❓ 方法四：直接问出KP</div>
               <div class="ch-body">
                 "你们这边关于和平台合作的事，一般是哪位负责人来决定？"<br>
                 "我可以怎么联系到他？"<br>
@@ -494,11 +572,13 @@ tr:hover td{background:#fafafa}
               <div class="ch-body">
                 <strong>工具：</strong>企查查、天眼查、爱企查<br>
                 <strong>能查到：</strong>法人姓名、股东、联系电话、注册地址<br>
-                <strong>查询路径：</strong><br>
-                搜索框输入<strong>酒店全称</strong>
-                → 「企业详情」→ <strong>「法人」</strong>字段 = 大概率老板本人<br>
-                → 「股东信息」= 可能有其他决策人<br>
-                → 「联系方式」→ 电话 / 官网<br>
+                <strong>查询路径：</strong>
+                <div class="mini-flow">
+                  <span class="mf-s">搜索酒店全称</span><span class="mf-arr">→</span>
+                  <span class="mf-s">企业详情</span><span class="mf-arr">→</span>
+                  <span class="mf-s">「法人」字段</span><span class="mf-arr">→</span>
+                  <span class="mf-s">联系方式/股东</span>
+                </div>
                 <strong>连锁门店：</strong>法人可能是集团总部 → 点「分支机构」→ 找门店负责人
               </div>
             </div>
@@ -508,13 +588,18 @@ tr:hover td{background:#fafafa}
               <div class="ch-body">
                 <strong>工具：</strong>百度、Google、必应<br>
                 <strong>能查到：</strong>酒店官网、老板接受采访的新闻、行业论坛发帖、工商登记页面<br>
-                <strong>查询路径：</strong><br>
-                百度搜索「<strong>酒店全称 + 老板/负责人/总经理</strong>」<br>
-                → 查看新闻报道、行业媒体采访 → 有时直接出现老板姓名<br>
-                搜索「<strong>酒店全称 + 联系方式/电话</strong>」<br>
-                → 酒店官网"关于我们"页面 → 有负责人信息<br>
-                搜索「<strong>酒店名 + 招聘</strong>」<br>
-                → 跳转招聘页面 → 有联系人信息
+                <strong>搜索①</strong>「酒店全称 + 老板/负责人/总经理」
+                <div class="mini-flow">
+                  <span class="mf-s">搜索全称+老板</span><span class="mf-arr">→</span>
+                  <span class="mf-s">新闻/媒体采访</span><span class="mf-arr">→</span>
+                  <span class="mf-s">老板姓名</span>
+                </div>
+                <strong>搜索②</strong>「酒店全称 + 联系方式/电话」
+                <div class="mini-flow">
+                  <span class="mf-s">搜索全称+电话</span><span class="mf-arr">→</span>
+                  <span class="mf-s">官网"关于我们"</span><span class="mf-arr">→</span>
+                  <span class="mf-s">负责人信息</span>
+                </div>
               </div>
             </div>
 
@@ -523,11 +608,13 @@ tr:hover td{background:#fafafa}
               <div class="ch-body">
                 <strong>工具：</strong>Boss直聘、猎聘、智联、58同城<br>
                 <strong>能查到：</strong>招聘联系人姓名职位、联系方式<br>
-                <strong>查询路径：</strong><br>
-                搜索「<strong>酒店名</strong>」
-                → 找到该酒店发布的职位
-                → 点开职位详情
-                → 查看<strong>「招聘方」姓名+职位</strong> = 通常是管理层<br>
+                <strong>查询路径：</strong>
+                <div class="mini-flow">
+                  <span class="mf-s">搜索酒店名</span><span class="mf-arr">→</span>
+                  <span class="mf-s">找酒店职位</span><span class="mf-arr">→</span>
+                  <span class="mf-s">点开职位详情</span><span class="mf-arr">→</span>
+                  <span class="mf-s">「招聘方」姓名+职位</span>
+                </div>
                 → 在平台发起对话：<em>"在招聘网站看到您，我是飞猪BD，想聊个合作……"</em>
               </div>
             </div>
@@ -537,11 +624,14 @@ tr:hover td{background:#fafafa}
               <div class="ch-body">
                 <strong>工具：</strong>飞猪、美团、携程、去哪儿<br>
                 <strong>能查到：</strong>酒店联系人、老板回复记录<br>
-                <strong>查询路径：</strong><br>
-                搜索酒店名 → 进入店铺页
-                → 「<strong>评论区</strong>」→ 找商家回复 → 回复者昵称/签名常含老板姓名<br>
-                → 「店铺介绍」→ 责任人/联系方式<br>
-                → 飞猪商家后台：「商家中心」→ 联系人信息
+                <strong>查询路径：</strong>
+                <div class="mini-flow">
+                  <span class="mf-s">搜索酒店名</span><span class="mf-arr">→</span>
+                  <span class="mf-s">进入店铺页</span><span class="mf-arr">→</span>
+                  <span class="mf-s">评论区商家回复</span><span class="mf-arr">→</span>
+                  <span class="mf-s">老板姓名/联系方式</span>
+                </div>
+                飞猪商家后台：「商家中心」→ 联系人信息
               </div>
             </div>
 
@@ -549,10 +639,14 @@ tr:hover td{background:#fafafa}
               <div class="ch-head orange">④ 社交媒体</div>
               <div class="ch-body">
                 <strong>工具：</strong>微信公众号、抖音、小红书<br>
-                <strong>查询路径：</strong><br>
-                <em>微信：</em>搜「酒店名」→ 公众号主页 → 「联系我们」/菜单栏 → 老板微信/电话<br>
-                <em>抖音：</em>搜「酒店名+城市」→ 主页简介 → 联系方式<br>
-                <em>小红书：</em>搜「酒店名」→ 帖子评论区老板常亲自回复 → 点头像 → 私信
+                <strong>微信：</strong>
+                <div class="mini-flow">
+                  <span class="mf-s">搜酒店名</span><span class="mf-arr">→</span>
+                  <span class="mf-s">公众号主页</span><span class="mf-arr">→</span>
+                  <span class="mf-s">「联系我们」</span><span class="mf-arr">→</span>
+                  <span class="mf-s">老板微信/电话</span>
+                </div>
+                <strong>小红书：</strong>搜酒店名 → 评论区老板常亲自回复 → 点头像私信
               </div>
             </div>
 
@@ -560,25 +654,27 @@ tr:hover td{background:#fafafa}
               <div class="ch-head pink">⑤ AI工具辅助</div>
               <div class="ch-body">
                 <strong>工具：</strong>通义千问、Kimi、ChatGPT等<br>
-                <strong>查询路径：</strong><br>
-                对话框输入：<br>
-                <em>"帮我查【酒店全称】位于【城市+地址】的老板姓名和联系方式，以及在哪些OTA上线了"</em><br>
-                → AI整合多平台线索<br>
+                <strong>查询路径：</strong>
+                <div class="mini-flow">
+                  <span class="mf-s">输入酒店全称+城市</span><span class="mf-arr">→</span>
+                  <span class="mf-s">AI整合多平台线索</span><span class="mf-arr">→</span>
+                  <span class="mf-s">二次核实确认</span>
+                </div>
+                <em>提示词：</em>"帮我查【酒店全称】位于【城市+地址】的老板姓名和联系方式，以及在哪些OTA上线了"<br>
                 <strong>注意：</strong>AI结果需二次核实，仅作参考线索
               </div>
             </div>
 
           </div>
 
-          <h4>拜访前20分钟情报清单</h4>
-          <div class="dlg good">
-            在出发前，按顺序快速搜集：<br>
-            □ 先查<strong>企典</strong>：KP姓名 + 手机号，是否有历史合作记录<br>
-            □ 再查<strong>企查查</strong>：法人姓名，确认是否和企典一致<br>
-            □ 酒店近期有没有动态（装修 / 转让 / 扩张）<br>
-            □ 酒店目前在哪些OTA上架，价格区间大概是多少<br>
-            □ 评论中有没有频繁差评（可作为切入点聊改善）<br>
-            □ 老板有没有社交媒体账号，了解他的关注点和性格
+          <h4>出发前必做：20分钟情报清单</h4>
+          <div class="checklist">
+            <div class="cl-item"><div class="cl-icon">1</div><div><span class="cl-key">查企典</span><span class="cl-desc">KP姓名 + 手机号，确认是否有历史合作记录</span></div></div>
+            <div class="cl-item"><div class="cl-icon">2</div><div><span class="cl-key">查企查查</span><span class="cl-desc">法人姓名，确认是否和企典一致</span></div></div>
+            <div class="cl-item"><div class="cl-icon">3</div><div><span class="cl-key">查近期动态</span><span class="cl-desc">酒店有没有装修 / 转让 / 扩张迹象</span></div></div>
+            <div class="cl-item"><div class="cl-icon">4</div><div><span class="cl-key">查OTA上架</span><span class="cl-desc">目前在哪些平台上架，价格区间大概是多少</span></div></div>
+            <div class="cl-item"><div class="cl-icon">5</div><div><span class="cl-key">看评论</span><span class="cl-desc">有没有频繁差评——可作为切入点聊改善</span></div></div>
+            <div class="cl-item"><div class="cl-icon">6</div><div><span class="cl-key">找社交账号</span><span class="cl-desc">老板有没有抖音/小红书，了解他的关注点和性格</span></div></div>
           </div>
 
           <div class="alert warn">
@@ -607,60 +703,79 @@ tr:hover td{background:#fafafa}
         </div>
         <div class="road-bd">
 
-          <h4>三种引荐路径</h4>
+          <div class="ref-paths">
 
-          <div style="background:#f0fdf4;border:1px solid #bbf7d0;border-radius:var(--rsm);padding:12px 14px;margin:10px 0">
-            <div style="font-weight:700;color:#15803d;margin-bottom:8px;font-size:13px">① 让已合作酒店老板引荐周边酒店（最高效！）</div>
-            <p style="font-size:13px;color:#166534">带着"张三介绍的"五个字去见陌生酒店老板，成功率远超陌生拜访。这是<strong>目前转化率最高的方法</strong>，但大多数BD走的时候没有开口要——这个动作一定要养成习惯。</p>
-          </div>
-
-          <div class="isteps">
-            <div class="istep"><div class="isn">1</div><div class="ist">和酒店老板聊得不错</div></div>
-            <div class="istep"><div class="isn">2</div><div class="ist">临走时开口请引荐</div></div>
-            <div class="istep"><div class="isn">3</div><div class="ist">拿到对方联系方式</div></div>
-            <div class="istep"><div class="isn">4</div><div class="ist">用"×老板介绍的"开场</div></div>
-            <div class="istep"><div class="isn">5</div><div class="ist">成功率大幅提升</div></div>
-          </div>
-
-          <div class="dlg talk">
-            （准备离开时）"×老板，今天聊得很愉快！我在跑这片商圈，您在这边认识不少同行吧？方便帮我引荐几家聊聊吗？您放心，我不会给您添麻烦的。"<br><br>
-            拿到引荐后去拜访时开场：<br>
-            "×老板您好，我是飞猪的小李，是隔壁张老板介绍过来的，他说您也在做线上这块，觉得可以互相聊聊……"
-          </div>
-
-          <div style="background:#f0fdf4;border:1px solid #bbf7d0;border-radius:var(--rsm);padding:12px 14px;margin:10px 0">
-            <div style="font-weight:700;color:#15803d;margin-bottom:8px;font-size:13px">② 友商BD + PMS/OTA客户经理互通</div>
-            <p style="font-size:13px;color:#166534">不只是友商BD（美团/携程），<strong>PMS系统的客户经理</strong>（住哲/驿公里/云掌柜等）和OTA客户经理也服务着大量酒店，手里有丰富的KP联系方式，可以互换资源。</p>
-          </div>
-
-          <div class="ch-grid">
-            <div class="ch-card">
-              <div class="ch-head teal">友商BD互通</div>
-              <div class="ch-body">
-                美团/携程/去哪儿BD都在跑同一商圈，互换名片、互通KP信息<br><br>
-                <div class="dlg talk" style="margin:6px 0;padding-top:20px">
-                  "×哥，你们也在跑这片区域？我们BD互相认识一下，有些商圈资源互通有无。你知道××酒店老板叫什么吗？我这边也有几家你可能感兴趣的……"
+            <!-- 路径① -->
+            <div class="ref-path">
+              <div class="rp-num"><div class="rp-circle">①</div></div>
+              <div class="rp-body">
+                <div class="rp-title-row">
+                  <span class="rp-title">让已合作酒店老板引荐周边酒店</span>
+                  <span class="rp-badge hot">转化率最高</span>
+                </div>
+                <p style="font-size:13px;color:#166534;margin-bottom:8px">带着"张三介绍的"五个字去见陌生老板，成功率远超陌生拜访。大多数BD走的时候没有开口要——<strong>这个动作一定要养成习惯</strong>。</p>
+                <div class="isteps">
+                  <div class="istep"><div class="isn">1</div><div class="ist">和酒店老板聊得不错</div></div>
+                  <div class="istep"><div class="isn">2</div><div class="ist">临走时开口请引荐</div></div>
+                  <div class="istep"><div class="isn">3</div><div class="ist">拿到对方联系方式</div></div>
+                  <div class="istep"><div class="isn">4</div><div class="ist">用"×老板介绍的"开场</div></div>
+                  <div class="istep"><div class="isn">5</div><div class="ist">成功率大幅提升</div></div>
+                </div>
+                <div class="dlg talk">
+                  （准备离开时）"×老板，今天聊得很愉快！我在跑这片商圈，您在这边认识不少同行吧？方便帮我引荐几家聊聊吗？您放心，我不会给您添麻烦的。"<br><br>
+                  拿到引荐后去拜访时开场：<br>
+                  "×老板您好，我是飞猪的小李，是隔壁张老板介绍过来的，他说您也在做线上这块，觉得可以互相聊聊……"
                 </div>
               </div>
             </div>
-            <div class="ch-card">
-              <div class="ch-head" style="background:#d1fae5;color:#065f46">PMS/OTA客户经理互通</div>
-              <div class="ch-body">
-                PMS服务商客户经理服务大量酒店，认识很多KP；OTA客户经理也有丰富商家联系人资源<br><br>
-                <div class="dlg talk" style="margin:6px 0;padding-top:20px">
-                  "×哥，你们PMS覆盖了不少酒店吧？我在找这片区域一些酒店负责人，能不能互通一下资源？我这边飞猪的合作机会也可以给你推。"
+
+            <!-- 路径② -->
+            <div class="ref-path">
+              <div class="rp-num"><div class="rp-circle">②</div></div>
+              <div class="rp-body">
+                <div class="rp-title-row">
+                  <span class="rp-title">友商BD + PMS/OTA客户经理互通</span>
+                  <span class="rp-badge">资源互换</span>
+                </div>
+                <p style="font-size:13px;color:#166534;margin-bottom:8px">不只是友商BD（美团/携程），<strong>PMS系统客户经理</strong>（住哲/驿公里/云掌柜等）和OTA客户经理也服务大量酒店，手里有丰富KP联系方式，可以互换资源。</p>
+                <div class="ch-grid">
+                  <div class="ch-card">
+                    <div class="ch-head teal">🤝 友商BD互通</div>
+                    <div class="ch-body">
+                      美团/携程/去哪儿BD都在跑同一商圈，互换名片、互通KP信息<br><br>
+                      <div class="dlg talk" style="margin:6px 0;padding-top:20px">
+                        "×哥，你们也在跑这片区域？我们BD互相认识一下，有些商圈资源互通有无。你知道××酒店老板叫什么吗？我这边也有几家你可能感兴趣的……"
+                      </div>
+                    </div>
+                  </div>
+                  <div class="ch-card">
+                    <div class="ch-head" style="background:#d1fae5;color:#065f46">📋 PMS/OTA客户经理互通</div>
+                    <div class="ch-body">
+                      PMS服务商客户经理服务大量酒店，认识很多KP；OTA客户经理也有丰富商家联系人资源<br><br>
+                      <div class="dlg talk" style="margin:6px 0;padding-top:20px">
+                        "×哥，你们PMS覆盖了不少酒店吧？我在找这片区域一些酒店负责人，能不能互通一下资源？我这边飞猪的合作机会也可以给你推。"
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
 
-          <div style="background:#f0fdf4;border:1px solid #bbf7d0;border-radius:var(--rsm);padding:12px 14px;margin:10px 0">
-            <div style="font-weight:700;color:#15803d;margin-bottom:8px;font-size:13px">③ 向同行酒店从业者打听</div>
-            <p style="font-size:13px;color:#166534">在行业交流群、酒店协会、商圈人脉圈中，打听目标酒店的KP信息。同行酒店人之间往往互相认识，知道谁是谁。</p>
-          </div>
+            <!-- 路径③ -->
+            <div class="ref-path">
+              <div class="rp-num"><div class="rp-circle">③</div></div>
+              <div class="rp-body">
+                <div class="rp-title-row">
+                  <span class="rp-title">向同行酒店从业者打听</span>
+                  <span class="rp-badge">人脉圈</span>
+                </div>
+                <p style="font-size:13px;color:#166534;margin-bottom:8px">在行业交流群、酒店协会、商圈人脉圈中打听目标酒店KP信息。同行酒店人之间往往互相认识，知道谁是谁。</p>
+                <div class="dlg talk">
+                  "×总，您认识××街上那家如家/汉庭的老板吗？我想过去拜访，想先了解一下这个人大概怎么样……"
+                </div>
+              </div>
+            </div>
 
-          <div class="dlg talk">
-            "×总，您认识××街上那家如家/汉庭的老板吗？我想过去拜访，想先了解一下这个人大概怎么样……"
           </div>
 
           <div class="alert ok">
@@ -707,15 +822,28 @@ tr:hover td{background:#fafafa}
           </div>
 
           <h4>可以提供的"价值钩子"</h4>
-          <table>
-            <thead><tr><th>价值类型</th><th>具体内容</th><th>效果</th></tr></thead>
-            <tbody>
-              <tr><td>行业数据</td><td>"您周边几家酒店最近在飞猪上的入住率大概是…"</td><td>让对方觉得你有信息</td></tr>
-              <tr><td>竞品动态</td><td>"隔壁×酒店最近做了一个活动，效果不错，我来看看您这边有没有类似机会"</td><td>让对方有危机感</td></tr>
-              <tr><td>平台政策</td><td>"最近平台有个流量扶持政策，符合您情况的我帮您看了一下……"</td><td>让对方觉得你帮了他</td></tr>
-              <tr><td>专业建议</td><td>"我看了您的页面，有几个小优化点，可能会影响您的曝光……"</td><td>建立专业感</td></tr>
-            </tbody>
-          </table>
+          <div class="vhook-grid">
+            <div class="vh-card">
+              <div class="vh-type t1">📊 行业数据</div>
+              <div class="vh-quote">"您周边几家酒店最近在飞猪上的入住率大概是……"</div>
+              <span class="vh-tag">让对方觉得你有信息</span>
+            </div>
+            <div class="vh-card">
+              <div class="vh-type t2">⚡ 竞品动态</div>
+              <div class="vh-quote">"隔壁×酒店最近做了一个活动，效果不错，我来看看您这边有没有类似机会"</div>
+              <span class="vh-tag">让对方产生危机感</span>
+            </div>
+            <div class="vh-card">
+              <div class="vh-type t3">📢 平台政策</div>
+              <div class="vh-quote">"最近平台有个流量扶持政策，符合您情况的我帮您看了一下……"</div>
+              <span class="vh-tag">让对方觉得你帮了他</span>
+            </div>
+            <div class="vh-card">
+              <div class="vh-type t4">🔍 专业建议</div>
+              <div class="vh-quote">"我看了您的页面，有几个小优化点，可能会影响您的曝光……"</div>
+              <span class="vh-tag">建立专业感</span>
+            </div>
+          </div>
 
           <div class="alert warn">
             <span class="alert-ico">⚠</span>
@@ -913,4 +1041,5 @@ document.querySelectorAll('.nav-item').forEach(a => {
 });
 </script>
 </body>
+</html>
 </html>
