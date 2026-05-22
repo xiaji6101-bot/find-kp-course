@@ -366,8 +366,8 @@ tr:hover td{background:#fafafa}
     <div class="chip">🔗 前置：无</div>
   </div>
   <div class="hd-start">
-    <p>本课程将带你系统学习找KP的4条核心路径，以及必须避开的雷区。<br>请按步骤学习，每学完一个模块需要通过小测试才能进入下一步。</p>
-    <button class="btn-next" onclick="goStep(1)">开始学习</button>
+    <p>本课程将带你系统学习找KP的4条核心路径，以及必须避开的雷区。</p>
+    <button class="btn-next" onclick="goStep(1)" style="background:#f59e0b;box-shadow:0 3px 10px rgba(245,158,11,.35)">开始学习</button>
   </div>
 </div>
 
@@ -484,19 +484,7 @@ tr:hover td{background:#fafafa}
     </div>
 
   </div>
-</div>
-
-
-<!-- ========== 找KP的方法 ========== -->
-<div class="step-screen" id="step-3"><div class="mod" id="part-method">
-  <div class="mod-hd open" onclick="tog(this)">
-    <div class="mod-hd-l"><span class="tag tag-g">核心</span><h2>找KP的4条路</h2></div>
-    <span class="tog">▾</span>
-  </div>
-  <div class="mod-bd open">
-
-
-
+</div></div>
 <div class="finish-bar"><span style="font-size:13px;color:var(--muted)">学习完成后点击按钮</span><button class="btn-next" id="btn-finish-2" onclick="showQuiz(2)">学习完成</button></div>
 </div>
 <div class="step-screen" id="quiz-2" style="display:none">
@@ -510,6 +498,17 @@ tr:hover td{background:#fafafa}
 <div class="quiz-result err" id="qres-2-err">回答错误，请重新选择。</div>
 </div>
 </div>
+
+
+<!-- ========== 找KP的方法 ========== -->
+<div class="step-screen" id="step-3"><div class="mod" id="part-method">
+  <div class="mod-hd open" onclick="tog(this)">
+    <div class="mod-hd-l"><span class="tag tag-g">核心</span><h2>找KP的4条路</h2></div>
+    <span class="tog">▾</span>
+  </div>
+  <div class="mod-bd open">
+
+
 
     <div class="road-compare">
       <div class="rc-card">
@@ -603,8 +602,11 @@ tr:hover td{background:#fafafa}
           </div>
         </div>
       </div><!-- /road-2 -->
+    </div><!-- /road-grid -->
+  </div><!-- /mod-bd -->
+</div><!-- /mod -->
+</div><!-- /step-3 -->
 <div class="finish-bar"><span style="font-size:13px;color:var(--muted)">学习完成后点击按钮</span><button class="btn-next" id="btn-finish-3" onclick="showQuiz(3)">学习完成</button></div>
-</div>
 <div class="step-screen" id="quiz-3" style="display:none">
 <div class="quiz-box">
 <div class="quiz-title">小测试：网上查信息最有效的方法是？</div>
