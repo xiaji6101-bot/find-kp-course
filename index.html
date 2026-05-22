@@ -635,7 +635,7 @@ tr:hover td{background:#fafafa}
           <div class="road-badge">4</div>
           <div class="road-info">
             <div class="road-name">价值先一步</div>
-            <div class="road-sub">适合对方防备高、难以直接切入的场景</div>
+            <div class="road-sub">适用于对方警惕性高、难以切入的场景</div>
           </div>
           <div class="road-pills"><span class="road-pill">进阶技巧</span><span class="road-pill">需耐心</span></div>
         </div>
@@ -664,7 +664,7 @@ tr:hover td{background:#fafafa}
             "美女，我看你们中午忙得没时间吃饭，我们有套AI系统能帮你分担接待压力，每天能省出一小时休息时间，要不要我帮你介绍下负责人？"
           </div>
 
-          <h4>可以提供的"价值钩子"</h4>
+          <h4>价值钩子建议</h4>
           <div class="vhook-grid">
             <div class="vh-card">
               <div class="vh-type t1">📊 行业数据</div>
@@ -672,7 +672,7 @@ tr:hover td{background:#fafafa}
               <span class="vh-tag">让对方觉得你有信息</span>
             </div>
             <div class="vh-card">
-              <div class="vh-type t2">⚡ 竞品动态</div>
+              <div class="vh-type t2">⚡ 精品动态</div>
               <div class="vh-quote">"隔壁×酒店最近做了一个活动，效果不错，我来看看您这边有没有类似机会"</div>
               <span class="vh-tag">让对方产生危机感</span>
             </div>
@@ -682,7 +682,7 @@ tr:hover td{background:#fafafa}
               <span class="vh-tag">让对方觉得你帮了他</span>
             </div>
             <div class="vh-card">
-              <div class="vh-type t4">🔍 专业建议</div>
+              <div class="vh-type t4">🔍 专业经营建议</div>
               <div class="vh-quote">"我看了您的页面，有几个小优化点，可能会影响您的曝光……"</div>
               <span class="vh-tag">建立专业感</span>
             </div>
@@ -690,7 +690,7 @@ tr:hover td{background:#fafafa}
 
           <div class="alert warn">
             <span class="alert-ico">⚠</span>
-            <div><strong>底线原则：</strong>可以暂时不提自己的身份，但<strong>绝不能谎称是旅行社/采购商/会议公司</strong>等虚假身份。<br>一旦撒谎，对方发现后信任归零，且严重影响飞猪平台声誉。<br><strong>暂不提身份 ≠ 谎称别的身份</strong>，这条线必须守住。</div>
+            <div><strong>小Tips：</strong>可暂不提身份，但<strong>绝不能伪造身份</strong>，避免产生信任危机，不利于后续合作。</div>
           </div>
 
         </div>
@@ -853,6 +853,15 @@ document.querySelectorAll('.nav-item').forEach(a => {
     const href = a.getAttribute('href');
     if (href && href.startsWith('#')) {
       e.preventDefault();
+      const t = document.querySelector(href);
+      if (t) t.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  });
+});
+</script>
+</body>
+</html>
+</html>
       const t = document.querySelector(href);
       if (t) t.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
