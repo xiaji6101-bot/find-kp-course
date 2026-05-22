@@ -453,7 +453,7 @@ tr:hover td{background:#fafafa}
         </div>
         <div class="road-meta">
           <div class="rmi"><div class="rmi-l">成功率</div><div class="rmi-v">★★★★☆</div></div>
-          <div class="rmi"><div class="rmi-l">适用业务类型</div><div class="rmi-v">低星酒店/民宿</div></div>
+          <div class="rmi"><div class="rmi-l">适用业务类型</div><div class="rmi-v"><span style="color:#dc2626">低星酒店/民宿</span></div></div>
           <div class="rmi"><div class="rmi-l">核心工具</div><div class="rmi-v">企典+企查查+招聘+社媒</div></div>
         </div>
         <div class="road-bd">
@@ -861,15 +861,6 @@ document.querySelectorAll('.nav-item').forEach(a => {
     const href = a.getAttribute('href');
     if (href && href.startsWith('#')) {
       e.preventDefault();
-      const t = document.querySelector(href);
-      if (t) t.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
-  });
-});
-</script>
-</body>
-</html>
-</html>
       const t = document.querySelector(href);
       if (t) t.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
